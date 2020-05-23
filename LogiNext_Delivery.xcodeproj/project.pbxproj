@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3169ACD7000427E8A988027E /* Pods_LogiNext_Delivery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA265A0CF088E7118E2598F /* Pods_LogiNext_Delivery.framework */; };
 		80C0D427247922D4004253BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D426247922D4004253BB /* AppDelegate.swift */; };
 		80C0D429247922D4004253BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D428247922D4004253BB /* SceneDelegate.swift */; };
 		80C0D42B247922D4004253BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D42A247922D4004253BB /* ViewController.swift */; };
@@ -14,6 +15,17 @@
 		80C0D430247922D6004253BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80C0D42F247922D6004253BB /* Assets.xcassets */; };
 		80C0D433247922D6004253BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80C0D431247922D6004253BB /* LaunchScreen.storyboard */; };
 		80C0D43E247922D6004253BB /* LogiNext_DeliveryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D43D247922D6004253BB /* LogiNext_DeliveryTests.swift */; };
+		80C0D44B24792C54004253BB /* DataManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D44A24792C54004253BB /* DataManagerProtocol.swift */; };
+		80C0D44E24792D6B004253BB /* Sorted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D44D24792D6B004253BB /* Sorted.swift */; };
+		80C0D45024792FE8004253BB /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D44F24792FE8004253BB /* RealmManager.swift */; };
+		80C0D4522479337E004253BB /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D4512479337E004253BB /* RealmProvider.swift */; };
+		80C0D455247933C3004253BB /* URL+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D454247933C3004253BB /* URL+Additions.swift */; };
+		80C0D45A247934DC004253BB /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D459247934DC004253BB /* Order.swift */; };
+		80C0D45C2479372D004253BB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D45B2479372D004253BB /* User.swift */; };
+		80C0D45F2479399B004253BB /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D45E2479399B004253BB /* UserDTO.swift */; };
+		80C0D461247939CC004253BB /* OrderDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D460247939CC004253BB /* OrderDTO.swift */; };
+		80C0D46624793D9C004253BB /* MappableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D46524793D9C004253BB /* MappableProtocol.swift */; };
+		F59E744954513B38140F044C /* Pods_LogiNext_DeliveryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24ECB4930136EEB43C0719C4 /* Pods_LogiNext_DeliveryTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2304420E0CFDE86B8C73C4CE /* Pods-LogiNext_DeliveryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogiNext_DeliveryTests.release.xcconfig"; path = "Target Support Files/Pods-LogiNext_DeliveryTests/Pods-LogiNext_DeliveryTests.release.xcconfig"; sourceTree = "<group>"; };
+		24ECB4930136EEB43C0719C4 /* Pods_LogiNext_DeliveryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LogiNext_DeliveryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55F8707AD44B1AEF321EEE3A /* Pods-LogiNext_Delivery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogiNext_Delivery.release.xcconfig"; path = "Target Support Files/Pods-LogiNext_Delivery/Pods-LogiNext_Delivery.release.xcconfig"; sourceTree = "<group>"; };
 		80C0D423247922D4004253BB /* LogiNext_Delivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogiNext_Delivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80C0D426247922D4004253BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80C0D428247922D4004253BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +53,19 @@
 		80C0D439247922D6004253BB /* LogiNext_DeliveryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogiNext_DeliveryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		80C0D43D247922D6004253BB /* LogiNext_DeliveryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogiNext_DeliveryTests.swift; sourceTree = "<group>"; };
 		80C0D43F247922D6004253BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		80C0D44A24792C54004253BB /* DataManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerProtocol.swift; sourceTree = "<group>"; };
+		80C0D44D24792D6B004253BB /* Sorted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sorted.swift; sourceTree = "<group>"; };
+		80C0D44F24792FE8004253BB /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		80C0D4512479337E004253BB /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
+		80C0D454247933C3004253BB /* URL+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Additions.swift"; sourceTree = "<group>"; };
+		80C0D459247934DC004253BB /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		80C0D45B2479372D004253BB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		80C0D45E2479399B004253BB /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
+		80C0D460247939CC004253BB /* OrderDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDTO.swift; sourceTree = "<group>"; };
+		80C0D46524793D9C004253BB /* MappableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappableProtocol.swift; sourceTree = "<group>"; };
+		8700553C82A0FF66F2E14D1F /* Pods-LogiNext_DeliveryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogiNext_DeliveryTests.debug.xcconfig"; path = "Target Support Files/Pods-LogiNext_DeliveryTests/Pods-LogiNext_DeliveryTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BEA265A0CF088E7118E2598F /* Pods_LogiNext_Delivery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LogiNext_Delivery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F744A61F128F09B2642BCC7F /* Pods-LogiNext_Delivery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogiNext_Delivery.debug.xcconfig"; path = "Target Support Files/Pods-LogiNext_Delivery/Pods-LogiNext_Delivery.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3169ACD7000427E8A988027E /* Pods_LogiNext_Delivery.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,18 +81,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F59E744954513B38140F044C /* Pods_LogiNext_DeliveryTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7AE4D3224F781702DF4E6766 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BEA265A0CF088E7118E2598F /* Pods_LogiNext_Delivery.framework */,
+				24ECB4930136EEB43C0719C4 /* Pods_LogiNext_DeliveryTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		80C0D41A247922D4004253BB = {
 			isa = PBXGroup;
 			children = (
 				80C0D425247922D4004253BB /* LogiNext_Delivery */,
 				80C0D43C247922D6004253BB /* LogiNext_DeliveryTests */,
 				80C0D424247922D4004253BB /* Products */,
+				DA525D851FB1980B1930A16A /* Pods */,
+				7AE4D3224F781702DF4E6766 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +120,8 @@
 		80C0D425247922D4004253BB /* LogiNext_Delivery */ = {
 			isa = PBXGroup;
 			children = (
+				80C0D453247933B2004253BB /* Extensions */,
+				80C0D44824792620004253BB /* DatabaseService */,
 				80C0D426247922D4004253BB /* AppDelegate.swift */,
 				80C0D428247922D4004253BB /* SceneDelegate.swift */,
 				80C0D42A247922D4004253BB /* ViewController.swift */,
@@ -99,6 +142,97 @@
 			path = LogiNext_DeliveryTests;
 			sourceTree = "<group>";
 		};
+		80C0D44824792620004253BB /* DatabaseService */ = {
+			isa = PBXGroup;
+			children = (
+				80C0D46224793D54004253BB /* Mapper */,
+				80C0D45D24793964004253BB /* DTO */,
+				80C0D44C24792D48004253BB /* Realm */,
+			);
+			path = DatabaseService;
+			sourceTree = "<group>";
+		};
+		80C0D4492479262D004253BB /* RealmManager */ = {
+			isa = PBXGroup;
+			children = (
+				80C0D44F24792FE8004253BB /* RealmManager.swift */,
+			);
+			path = RealmManager;
+			sourceTree = "<group>";
+		};
+		80C0D44C24792D48004253BB /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				80C0D458247934C0004253BB /* RealmModels */,
+				80C0D457247934B1004253BB /* RealmProtocols */,
+				80C0D4492479262D004253BB /* RealmManager */,
+				80C0D456247934A0004253BB /* RealmProvider */,
+				80C0D44D24792D6B004253BB /* Sorted.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		80C0D453247933B2004253BB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				80C0D454247933C3004253BB /* URL+Additions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		80C0D456247934A0004253BB /* RealmProvider */ = {
+			isa = PBXGroup;
+			children = (
+				80C0D4512479337E004253BB /* RealmProvider.swift */,
+			);
+			path = RealmProvider;
+			sourceTree = "<group>";
+		};
+		80C0D457247934B1004253BB /* RealmProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				80C0D44A24792C54004253BB /* DataManagerProtocol.swift */,
+			);
+			path = RealmProtocols;
+			sourceTree = "<group>";
+		};
+		80C0D458247934C0004253BB /* RealmModels */ = {
+			isa = PBXGroup;
+			children = (
+				80C0D459247934DC004253BB /* Order.swift */,
+				80C0D45B2479372D004253BB /* User.swift */,
+			);
+			path = RealmModels;
+			sourceTree = "<group>";
+		};
+		80C0D45D24793964004253BB /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				80C0D45E2479399B004253BB /* UserDTO.swift */,
+				80C0D460247939CC004253BB /* OrderDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		80C0D46224793D54004253BB /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				80C0D46524793D9C004253BB /* MappableProtocol.swift */,
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
+		DA525D851FB1980B1930A16A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F744A61F128F09B2642BCC7F /* Pods-LogiNext_Delivery.debug.xcconfig */,
+				55F8707AD44B1AEF321EEE3A /* Pods-LogiNext_Delivery.release.xcconfig */,
+				8700553C82A0FF66F2E14D1F /* Pods-LogiNext_DeliveryTests.debug.xcconfig */,
+				2304420E0CFDE86B8C73C4CE /* Pods-LogiNext_DeliveryTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +240,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 80C0D442247922D6004253BB /* Build configuration list for PBXNativeTarget "LogiNext_Delivery" */;
 			buildPhases = (
+				6AE35CE9210453588E81F49A /* [CP] Check Pods Manifest.lock */,
 				80C0D41F247922D4004253BB /* Sources */,
 				80C0D420247922D4004253BB /* Frameworks */,
 				80C0D421247922D4004253BB /* Resources */,
+				D323205F5439D899D503AD1C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,6 +259,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 80C0D445247922D6004253BB /* Build configuration list for PBXNativeTarget "LogiNext_DeliveryTests" */;
 			buildPhases = (
+				FE122AA54341A880566B018C /* [CP] Check Pods Manifest.lock */,
 				80C0D435247922D6004253BB /* Sources */,
 				80C0D436247922D6004253BB /* Frameworks */,
 				80C0D437247922D6004253BB /* Resources */,
@@ -195,14 +332,88 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6AE35CE9210453588E81F49A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LogiNext_Delivery-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D323205F5439D899D503AD1C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LogiNext_Delivery/Pods-LogiNext_Delivery-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LogiNext_Delivery/Pods-LogiNext_Delivery-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LogiNext_Delivery/Pods-LogiNext_Delivery-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FE122AA54341A880566B018C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LogiNext_DeliveryTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		80C0D41F247922D4004253BB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80C0D461247939CC004253BB /* OrderDTO.swift in Sources */,
 				80C0D42B247922D4004253BB /* ViewController.swift in Sources */,
+				80C0D44E24792D6B004253BB /* Sorted.swift in Sources */,
 				80C0D427247922D4004253BB /* AppDelegate.swift in Sources */,
+				80C0D45F2479399B004253BB /* UserDTO.swift in Sources */,
+				80C0D45A247934DC004253BB /* Order.swift in Sources */,
+				80C0D455247933C3004253BB /* URL+Additions.swift in Sources */,
+				80C0D46624793D9C004253BB /* MappableProtocol.swift in Sources */,
+				80C0D4522479337E004253BB /* RealmProvider.swift in Sources */,
 				80C0D429247922D4004253BB /* SceneDelegate.swift in Sources */,
+				80C0D44B24792C54004253BB /* DataManagerProtocol.swift in Sources */,
+				80C0D45C2479372D004253BB /* User.swift in Sources */,
+				80C0D45024792FE8004253BB /* RealmManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +571,7 @@
 		};
 		80C0D443247922D6004253BB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F744A61F128F09B2642BCC7F /* Pods-LogiNext_Delivery.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -377,6 +589,7 @@
 		};
 		80C0D444247922D6004253BB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55F8707AD44B1AEF321EEE3A /* Pods-LogiNext_Delivery.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -394,6 +607,7 @@
 		};
 		80C0D446247922D6004253BB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8700553C82A0FF66F2E14D1F /* Pods-LogiNext_DeliveryTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -415,6 +629,7 @@
 		};
 		80C0D447247922D6004253BB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2304420E0CFDE86B8C73C4CE /* Pods-LogiNext_DeliveryTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
