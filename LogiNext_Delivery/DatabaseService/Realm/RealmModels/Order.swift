@@ -13,10 +13,10 @@ class Order: Object {
     @objc dynamic var orderId: Int = 0
     @objc dynamic var name: String = ""
     
-    @objc dynamic var createdDate: Date = Date()
-    @objc dynamic var expectedDeliveryDate: Date = Date()
-    @objc dynamic var deliveredDate: Date = Date()
-    @objc dynamic var cancellededDate: Date = Date()
+    @objc dynamic var createdDate: Date?
+    @objc dynamic var expectedDeliveryDate: Date?
+    @objc dynamic var deliveredDate: Date?
+    @objc dynamic var cancellededDate: Date?
     
     @objc dynamic var isQueued: Bool = false
     @objc dynamic var isInTransit: Bool = false

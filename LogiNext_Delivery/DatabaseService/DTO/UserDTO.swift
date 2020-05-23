@@ -12,6 +12,17 @@ struct UserDTO {
     var firstName = ""
     var userId = 0
     var orders = [OrderDTO]()
+    
+    init(name: String, id: Int) {
+        self.firstName = name
+        self.userId = id
+    }
+    
+    init(firstName: String, userId: Int, orders: [OrderDTO]) {
+        self.firstName = firstName
+        self.userId = userId
+        self.orders = orders
+    }
 }
 
 extension UserDTO: MappableProtocol {
@@ -33,9 +44,5 @@ extension UserDTO: MappableProtocol {
         }
         let userDTO = UserDTO(firstName: object.name, userId: object.userId, orders: orders)
         return userDTO
-        
     }
-    
-    
-    
 }

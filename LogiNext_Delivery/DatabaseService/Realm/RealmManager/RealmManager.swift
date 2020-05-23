@@ -13,7 +13,7 @@ class RealmDataManager {
     
     private let realm: Realm?
     
-    init(realm: Realm) {
+    init(realm: Realm?) {
         self.realm = realm
     }
 }

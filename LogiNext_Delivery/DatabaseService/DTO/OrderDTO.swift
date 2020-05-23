@@ -16,10 +16,10 @@ struct OrderDTO {
     var deliveredDate: Date?
     var cancellededDate: Date?
     
-    var isQueued: Bool?
-    var isInTransit: Bool?
-    var isDelivered: Bool?
-    var isCancelled: Bool?
+    var isQueued: Bool = false
+    var isInTransit: Bool = false
+    var isDelivered: Bool = false
+    var isCancelled: Bool = false
     
     var createdByUser: UserDTO?
     var pickedUpByUser: UserDTO?
@@ -59,6 +59,19 @@ extension OrderDTO: MappableProtocol {
     
     func mapToPersistenceObject() -> Order {
         let model = Order()
+        model.name = self.name
+        model.createdDate = self.createdDate
+        model.expectedDeliveryDate = self.expectedDeliveryDate
+        model.deliveredDate = self.deliveredDate
+        model.cancellededDate = self.cancellededDate
+        model.isQueued = self.isQueued
+        model.isInTransit = self.isInTransit
+        model.isDelivered = self.isDelivered
+        model.isCancelled = self.isCancelled
+        model.createdByUser = self.createdByUser?.mapToPersistenceObject()
+        model.pickedUpByUser = self.pickedUpByUser?.mapToPersistenceObject()
+        model.deliveredByUser = self.deliveredByUser?.mapToPersistenceObject()
+        model.cancelledByUser = self.cancelledByUser?.mapToPersistenceObject()
         return model
     }
     
