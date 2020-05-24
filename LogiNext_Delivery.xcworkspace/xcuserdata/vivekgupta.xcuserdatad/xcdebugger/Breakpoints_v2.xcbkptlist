@@ -55,70 +55,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2FA71B54-593D-4E69-BCA9-593759B7D8FC"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LogiNext_Delivery/Screens/HomeScreen/HomeViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "menuTapped()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "2FA71B54-593D-4E69-BCA9-593759B7D8FC - e5e6f5e5b87ed5e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LogiNext_Delivery.HomeViewController.menuTapped() -&gt; ()"
-                  moduleName = "LogiNext_Delivery"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vivekgupta/Desktop/MyOwnDemoApps/Loginext/LogiNext_Delivery/LogiNext_Delivery/Screens/HomeScreen/HomeViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "25">
-               </Location>
-               <Location
-                  uuid = "2FA71B54-593D-4E69-BCA9-593759B7D8FC - 5dced0dd7dd87342"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in LogiNext_Delivery.HomeViewController.menuTapped() -&gt; ()"
-                  moduleName = "LogiNext_Delivery"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vivekgupta/Desktop/MyOwnDemoApps/Loginext/LogiNext_Delivery/LogiNext_Delivery/Screens/HomeScreen/HomeViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "55">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2D965297-F577-4783-B5CD-9074BADBD9C2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LogiNext_Delivery/Screens/HomeScreen/HomeViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "menuTapped()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "421E451C-EDB9-4470-912C-F80B2D7E81D8"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -177,6 +113,22 @@
             startingLineNumber = "27"
             endingLineNumber = "27"
             landmarkName = "createOrder(order:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "695F0A82-9176-4D99-A82E-BEFAA44AD56D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LogiNext_Delivery/Screens/OrderScreen/OrderDetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

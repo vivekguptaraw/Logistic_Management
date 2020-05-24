@@ -47,6 +47,8 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func orderButtonClick(_ sender: Any) {
+        menuTapped()
+        self.navigator?.createNewOrder()
     }
     
 }

@@ -11,9 +11,11 @@ import UIKit
 protocol IHomeNavigator {
     init(nav: UINavigationController?)
     func showCreateUserScreen()
+    func createNewOrder()
 }
 
 class HomeNavigator: IHomeNavigator {
+    
     var navigation: UINavigationController?
     let vm = LogisticViewModel()
     required init(nav: UINavigationController?) {
@@ -27,6 +29,13 @@ class HomeNavigator: IHomeNavigator {
             navigation?.present(vc, animated: true, completion: {
                 
             })
+        }
+    }
+    
+    func createNewOrder() {
+        if let vc = Helper.getViewControllerFromStoryboard(toStoryBoard: .Order, initialViewControllerIdentifier: OrderDetailViewController .storyBoardID) as? OrderDetailViewController {
+            vc.viewModel = OrderDetailViewModel(logistics: vm, order: nil)
+            navigation?.pushViewController(vc, animated: true)
         }
     }
 }

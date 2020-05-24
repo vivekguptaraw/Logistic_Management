@@ -9,7 +9,7 @@
 import UIKit
 
 enum  StoryBoard: String {
-    case Main
+    case Main, Order
 }
 
 struct Helper {

@@ -12,8 +12,9 @@ class OrderDetailViewModel {
     
     var logisiticsMainViewModel: LogisticViewModel?
     var successBlock: (() -> Void)?
+    var orderDTO: OrderDTO?
     
-    init(logistics: LogisticViewModel) {
+    init(logistics: LogisticViewModel, order: OrderDTO?) {
         self.logisiticsMainViewModel = logistics
     }
     
