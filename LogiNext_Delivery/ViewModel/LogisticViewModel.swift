@@ -48,10 +48,19 @@ class LogisticViewModel {
     }
     
     func createOrder(name: String, desc: String, date: Date, completion: @escaping (OrderDTO) -> Void) {
-        let orderDTO = OrderDTO(id: Int32(date.timeIntervalSince1970), name: name, desc: desc)
+        var orderDTO = OrderDTO(id: Int32(date.timeIntervalSince1970), name: name, desc: desc)
+        if let user = self.currentUser {
+            orderDTO.created(byUser: user, date: Date())
+        }
         manager.createOrder(order: orderDTO) {[weak self] (orderDTO) in
             guard let slf = self, let orderdto = orderDTO else {return}
             completion(orderdto)
+        }
+    }
+    
+    func getAllOrders(completion: @escaping ([OrderDTO]?) -> Void) {
+        manager.getAllOrders(userId: nil) { (orderDTOs) in
+            completion(orderDTOs)
         }
     }
     

@@ -14,6 +14,7 @@ protocol LogisticManagerProtocol {
     func saveUser(user: UserDTO, completion: (Bool) -> Void)
     func createOrder(order: OrderDTO, completion: @escaping (OrderDTO?) -> Void)
     func getCurrentUser(userId: Int32, completion: (UserDTO?) -> Void)
+    func getAllOrders(userId: Int32?, completion: ([OrderDTO]?) -> Void)
 }
 
 class LogisticManager: BaseLogisticManager<Storable> {
@@ -21,6 +22,19 @@ class LogisticManager: BaseLogisticManager<Storable> {
 }
 
 extension LogisticManager: LogisticManagerProtocol {
+    func getAllOrders(userId: Int32?, completion: ([OrderDTO]?) -> Void) {
+        var predicate: NSPredicate?
+        if let id = userId {
+           predicate = NSPredicate(format: "createdByUser = %@", id)
+        }
+        super.fetch(Order.self, predicate: predicate ?? nil, sorted: nil) { (array) in
+            let dtos = array.map {
+                OrderDTO.mapFromPersistenceObject($0)
+            }
+            completion(dtos)
+        }
+    }
+    
     func getCurrentUser(userId: Int32, completion: (UserDTO?) -> Void) {
         let predicate = NSPredicate(format: "%K == %@", argumentArray: ["userId", userId])
         try super.fetch(User.self, predicate: predicate, sorted: nil, completion: { (array) in

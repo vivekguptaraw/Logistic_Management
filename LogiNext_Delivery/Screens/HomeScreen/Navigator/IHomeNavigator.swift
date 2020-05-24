@@ -10,6 +10,7 @@ import UIKit
 
 protocol IHomeNavigator {
     init(nav: UINavigationController?)
+    var logisticViewModel: LogisticViewModel {get}
     func showCreateUserScreen()
     func createNewOrder()
 }
@@ -17,14 +18,17 @@ protocol IHomeNavigator {
 class HomeNavigator: IHomeNavigator {
     
     var navigation: UINavigationController?
-    let vm = LogisticViewModel()
+    var logisticViewModel: LogisticViewModel {
+        return LogisticViewModel()
+    }
+    
     required init(nav: UINavigationController?) {
         self.navigation = nav
     }
     
     func showCreateUserScreen() {
         if let vc = Helper.getViewControllerFromStoryboard(toStoryBoard: .Main, initialViewControllerIdentifier: UserListViewController.storyBoardID) as? UserListViewController {
-            vc.viewModel = UserListViewModel(logistics: vm)
+            vc.viewModel = UserListViewModel(logistics: logisticViewModel)
             //
             navigation?.present(vc, animated: true, completion: {
                 
@@ -34,7 +38,7 @@ class HomeNavigator: IHomeNavigator {
     
     func createNewOrder() {
         if let vc = Helper.getViewControllerFromStoryboard(toStoryBoard: .Order, initialViewControllerIdentifier: OrderDetailViewController .storyBoardID) as? OrderDetailViewController {
-            vc.viewModel = OrderDetailViewModel(logistics: vm, order: nil)
+            vc.viewModel = OrderDetailViewModel(logistics: logisticViewModel, order: nil)
             navigation?.pushViewController(vc, animated: true)
         }
     }

@@ -11,7 +11,6 @@ import UIKit
 class OrderDetailViewController: UIViewController {
     
     @IBOutlet weak var topImageView: UIImageView!
-    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var parentTopView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -29,7 +28,6 @@ class OrderDetailViewController: UIViewController {
     @IBOutlet weak var orderTitleHeight: NSLayoutConstraint!
     @IBOutlet weak var createOrderButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
-    
     
     var viewModel: OrderDetailViewModel?
     
@@ -51,8 +49,9 @@ class OrderDetailViewController: UIViewController {
             self.orderTitleTextField.becomeFirstResponder()
             self.orderTitleTextField.delegate = self
             self.orderDescTextField.delegate = self
-            orderTitleTextField.attributedPlaceholder = NSAttributedString(string: "Order Title",
-                                                                           attributes: [NSAttributedString.Key.foregroundColor: UIColor.orange.withAlphaComponent(0.7), NSAttributedString.Key.font: UIFont(name: "DIN Alternate", size: 17)])
+            orderTitleTextField.attributedPlaceholder = NSAttributedString(string: "Order Title", attributes: [NSAttributedString.Key.foregroundColor: UIColor.orange.withAlphaComponent(0.7), NSAttributedString.Key.font: UIFont(name: "DIN Alternate", size: 17)])
+        } else {
+            
         }
     }
     

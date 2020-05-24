@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -58,20 +59,56 @@
                                     <constraint firstItem="GFL-Vx-rsm" firstAttribute="top" secondItem="DQ1-xj-QC8" secondAttribute="top" constant="5" id="zX3-6D-gca"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ev5-Hh-cVh">
+                                <rect key="frame" x="0.0" y="138" width="414" height="648"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8WM-8z-R50">
+                                <rect key="frame" x="0.0" y="88" width="414" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Zk7-RA-O6a"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="D5k-bU-sUt">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="JtY-kz-aGf">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="TzM-04-4qU">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8WM-8z-R50" secondAttribute="trailing" id="ADa-YQ-9j3"/>
+                            <constraint firstItem="Ev5-Hh-cVh" firstAttribute="top" secondItem="8WM-8z-R50" secondAttribute="bottom" id="Ddq-vL-nWY"/>
                             <constraint firstAttribute="bottom" secondItem="DQ1-xj-QC8" secondAttribute="bottom" id="VmU-Az-Oe1"/>
+                            <constraint firstItem="Ev5-Hh-cVh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WNi-4A-Ulp"/>
+                            <constraint firstItem="8WM-8z-R50" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="iPZ-bB-izw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ev5-Hh-cVh" secondAttribute="trailing" id="iZn-Po-Gfx"/>
                             <constraint firstItem="DQ1-xj-QC8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="iiv-c5-Mza"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DQ1-xj-QC8" secondAttribute="trailing" id="mhy-ci-npF"/>
+                            <constraint firstItem="DQ1-xj-QC8" firstAttribute="top" secondItem="Ev5-Hh-cVh" secondAttribute="bottom" id="uT2-sQ-DXX"/>
+                            <constraint firstItem="8WM-8z-R50" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zKS-gX-f6L"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="pTf-f6-1Ef"/>
                     <connections>
                         <outlet property="menuBottomY" destination="VmU-Az-Oe1" id="Oms-Fv-ejA"/>
+                        <outlet property="menuCollectionView" destination="8WM-8z-R50" id="JOx-Eg-iRk"/>
                         <outlet property="menuView" destination="DQ1-xj-QC8" id="LwU-Oo-coN"/>
                         <outlet property="orderButton" destination="6PM-nU-OPA" id="mqv-S3-5A1"/>
+                        <outlet property="ordersTableView" destination="Ev5-Hh-cVh" id="iFw-7i-t53"/>
                         <outlet property="plusImageView" destination="GFL-Vx-rsm" id="sYd-Se-URG"/>
                         <outlet property="userButton" destination="LaV-Gx-vow" id="Uok-9G-nEi"/>
                     </connections>

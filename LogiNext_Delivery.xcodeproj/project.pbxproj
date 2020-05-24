@@ -17,6 +17,7 @@
 		8059C3D2247978CD00322C50 /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059C3D1247978CD00322C50 /* UIView+Additions.swift */; };
 		8059C3D42479793700322C50 /* OrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059C3D32479793700322C50 /* OrderDetailViewController.swift */; };
 		8059C3D624797A6D00322C50 /* OrderDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059C3D524797A6D00322C50 /* OrderDetailViewModel.swift */; };
+		806B145F247A866C00F51043 /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806B145E247A866C00F51043 /* UIColor+Additions.swift */; };
 		80C0D427247922D4004253BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D426247922D4004253BB /* AppDelegate.swift */; };
 		80C0D429247922D4004253BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D428247922D4004253BB /* SceneDelegate.swift */; };
 		80C0D42B247922D4004253BB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D42A247922D4004253BB /* HomeViewController.swift */; };
@@ -42,6 +43,10 @@
 		80C0D47D24795CBC004253BB /* UIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D47C24795CBC004253BB /* UIViewController+Additions.swift */; };
 		80C0D47F24795FDF004253BB /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D47E24795FDF004253BB /* UserListViewController.swift */; };
 		80EB3F39247A46350097D09A /* OrderListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EB3F38247A46350097D09A /* OrderListViewModel.swift */; };
+		80EB3F3F247A4D4F0097D09A /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EB3F3D247A4D4F0097D09A /* OrderTableViewCell.swift */; };
+		80EB3F40247A4D4F0097D09A /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80EB3F3E247A4D4F0097D09A /* OrderTableViewCell.xib */; };
+		80EB3F43247A62EA0097D09A /* OrderTabCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EB3F41247A62EA0097D09A /* OrderTabCollectionViewCell.swift */; };
+		80EB3F44247A62EA0097D09A /* OrderTabCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80EB3F42247A62EA0097D09A /* OrderTabCollectionViewCell.xib */; };
 		F59E744954513B38140F044C /* Pods_LogiNext_DeliveryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24ECB4930136EEB43C0719C4 /* Pods_LogiNext_DeliveryTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +73,7 @@
 		8059C3D1247978CD00322C50 /* UIView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Additions.swift"; sourceTree = "<group>"; };
 		8059C3D32479793700322C50 /* OrderDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailViewController.swift; sourceTree = "<group>"; };
 		8059C3D524797A6D00322C50 /* OrderDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewModel.swift; sourceTree = "<group>"; };
+		806B145E247A866C00F51043 /* UIColor+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
 		80C0D423247922D4004253BB /* LogiNext_Delivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogiNext_Delivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80C0D426247922D4004253BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80C0D428247922D4004253BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +103,10 @@
 		80C0D47C24795CBC004253BB /* UIViewController+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Additions.swift"; sourceTree = "<group>"; };
 		80C0D47E24795FDF004253BB /* UserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		80EB3F38247A46350097D09A /* OrderListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewModel.swift; sourceTree = "<group>"; };
+		80EB3F3D247A4D4F0097D09A /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
+		80EB3F3E247A4D4F0097D09A /* OrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTableViewCell.xib; sourceTree = "<group>"; };
+		80EB3F41247A62EA0097D09A /* OrderTabCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTabCollectionViewCell.swift; sourceTree = "<group>"; };
+		80EB3F42247A62EA0097D09A /* OrderTabCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTabCollectionViewCell.xib; sourceTree = "<group>"; };
 		8700553C82A0FF66F2E14D1F /* Pods-LogiNext_DeliveryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogiNext_DeliveryTests.debug.xcconfig"; path = "Target Support Files/Pods-LogiNext_DeliveryTests/Pods-LogiNext_DeliveryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BEA265A0CF088E7118E2598F /* Pods_LogiNext_Delivery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LogiNext_Delivery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F744A61F128F09B2642BCC7F /* Pods-LogiNext_Delivery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogiNext_Delivery.debug.xcconfig"; path = "Target Support Files/Pods-LogiNext_Delivery/Pods-LogiNext_Delivery.debug.xcconfig"; sourceTree = "<group>"; };
@@ -262,6 +272,7 @@
 				80C0D454247933C3004253BB /* URL+Additions.swift */,
 				80C0D47C24795CBC004253BB /* UIViewController+Additions.swift */,
 				8059C3D1247978CD00322C50 /* UIView+Additions.swift */,
+				806B145E247A866C00F51043 /* UIColor+Additions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -347,7 +358,8 @@
 		80C0D471247959B9004253BB /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
-				80EB3F36247A46050097D09A /* OrderList */,
+				80EB3F3A247A4D020097D09A /* Cells */,
+				80EB3F36247A46050097D09A /* ViewModel */,
 				80C0D472247959F6004253BB /* Navigator */,
 				80C0D42A247922D4004253BB /* HomeViewController.swift */,
 			);
@@ -377,12 +389,23 @@
 			path = OrderList;
 			sourceTree = "<group>";
 		};
-		80EB3F36247A46050097D09A /* OrderList */ = {
+		80EB3F36247A46050097D09A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				80EB3F38247A46350097D09A /* OrderListViewModel.swift */,
 			);
-			path = OrderList;
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		80EB3F3A247A4D020097D09A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				80EB3F3D247A4D4F0097D09A /* OrderTableViewCell.swift */,
+				80EB3F3E247A4D4F0097D09A /* OrderTableViewCell.xib */,
+				80EB3F41247A62EA0097D09A /* OrderTabCollectionViewCell.swift */,
+				80EB3F42247A62EA0097D09A /* OrderTabCollectionViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		DA525D851FB1980B1930A16A /* Pods */ = {
@@ -480,8 +503,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80EB3F40247A4D4F0097D09A /* OrderTableViewCell.xib in Resources */,
 				8059C3C4247962AC00322C50 /* UserTableViewCell.xib in Resources */,
 				80C0D433247922D6004253BB /* LaunchScreen.storyboard in Resources */,
+				80EB3F44247A62EA0097D09A /* OrderTabCollectionViewCell.xib in Resources */,
 				8059C3CE247977C600322C50 /* Order.storyboard in Resources */,
 				80C0D430247922D6004253BB /* Assets.xcassets in Resources */,
 				80C0D42E247922D4004253BB /* Main.storyboard in Resources */,
@@ -568,6 +593,7 @@
 			files = (
 				80C0D461247939CC004253BB /* OrderDTO.swift in Sources */,
 				8059C3C6247962EC00322C50 /* UserListViewModel.swift in Sources */,
+				80EB3F43247A62EA0097D09A /* OrderTabCollectionViewCell.swift in Sources */,
 				8059C3C3247962AC00322C50 /* UserTableViewCell.swift in Sources */,
 				80C0D42B247922D4004253BB /* HomeViewController.swift in Sources */,
 				80C0D47F24795FDF004253BB /* UserListViewController.swift in Sources */,
@@ -586,10 +612,12 @@
 				80C0D46624793D9C004253BB /* MappableProtocol.swift in Sources */,
 				8059C3BE2479624A00322C50 /* NibLoadbale.swift in Sources */,
 				80C0D46E24794B85004253BB /* LogisticViewModel.swift in Sources */,
+				806B145F247A866C00F51043 /* UIColor+Additions.swift in Sources */,
 				80C0D4522479337E004253BB /* RealmProvider.swift in Sources */,
 				80C0D429247922D4004253BB /* SceneDelegate.swift in Sources */,
 				80C0D44B24792C54004253BB /* DataManagerProtocol.swift in Sources */,
 				80C0D45C2479372D004253BB /* User.swift in Sources */,
+				80EB3F3F247A4D4F0097D09A /* OrderTableViewCell.swift in Sources */,
 				80C0D46924794906004253BB /* BaseLogisticManager.swift in Sources */,
 				8059C3C02479628900322C50 /* Configurable.swift in Sources */,
 				8059C3D2247978CD00322C50 /* UIView+Additions.swift in Sources */,
