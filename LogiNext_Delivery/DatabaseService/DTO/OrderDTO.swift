@@ -9,8 +9,9 @@
 import Foundation
 
 struct OrderDTO {
-    var orderId: Int
-    var name: String 
+    var orderId: Int32
+    var name: String
+    var orderDescription: String?
     var createdDate: Date?
     var expectedDeliveryDate: Date?
     var deliveredDate: Date?
@@ -26,9 +27,10 @@ struct OrderDTO {
     var deliveredByUser: UserDTO?
     var cancelledByUser: UserDTO?
     
-    init(id: Int, name: String) {
+    init(id: Int32, name: String, desc: String?) {
         self.orderId = id
         self.name = name
+        self.orderDescription = desc
     }
     
     mutating func created(byUser: UserDTO, date: Date) {
@@ -59,7 +61,9 @@ extension OrderDTO: MappableProtocol {
     
     func mapToPersistenceObject() -> Order {
         let model = Order()
+        model.orderId = self.orderId
         model.name = self.name
+        model.orderDescription =  self.orderDescription
         model.createdDate = self.createdDate
         model.expectedDeliveryDate = self.expectedDeliveryDate
         model.deliveredDate = self.deliveredDate
@@ -76,8 +80,7 @@ extension OrderDTO: MappableProtocol {
     }
     
     static func mapFromPersistenceObject(_ object: Order) -> OrderDTO {
-        let orderDto = OrderDTO(id: object.orderId, name: object.name)
+        let orderDto = OrderDTO(id: object.orderId, name: object.name, desc: object.orderDescription)
         return orderDto
     }
-    
 }

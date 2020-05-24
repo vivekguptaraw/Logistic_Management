@@ -12,10 +12,30 @@ import RealmSwift
 class LogisticViewModel {
     let databaseManager: DataManagerProtocol
     let manager: LogisticManagerProtocol
+    var currentUser: UserDTO? {
+        didSet {
+            setCurrentUser()
+        }
+    }
     
     init(db: DataManagerProtocol = RealmDataManager(realm: RealmProvider.default)) {
         self.databaseManager = db
         self.manager = LogisticManager(dbManager: db)
+        self.getCurrentUser()
+    }
+    
+    func getCurrentUser() {
+        let userDef = UserDefaults.standard
+        if let userId = userDef.object(forKey: "userId") as? Int32 {
+            manager.getCurrentUser(userId: userId) { (userDTO) in
+                self.currentUser = userDTO
+            }
+        }
+    }
+    
+    func setCurrentUser() {
+        let userDef = UserDefaults.standard
+        userDef.set(currentUser?.userId, forKey: "userId")
     }
     
     func saveUser(name: String, date: Date, completion: (Bool) -> Void) {
@@ -27,8 +47,8 @@ class LogisticViewModel {
         manager.getAllUser(sorted: Sorted(key: "name", ascending: true), completion: completion)
     }
     
-    func createOrder(name: String, date: Date, completion: (OrderDTO) -> Void) {
-        let orderDTO = OrderDTO(id: Int(date.timeIntervalSince1970), name: name)
+    func createOrder(name: String, desc: String, date: Date, completion: @escaping (OrderDTO) -> Void) {
+        let orderDTO = OrderDTO(id: Int32(date.timeIntervalSince1970), name: name, desc: desc)
         manager.createOrder(order: orderDTO) {[weak self] (orderDTO) in
             guard let slf = self, let orderdto = orderDTO else {return}
             completion(orderdto)

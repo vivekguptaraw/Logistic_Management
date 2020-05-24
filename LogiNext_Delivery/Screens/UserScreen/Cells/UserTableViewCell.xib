@@ -17,10 +17,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kls-cj-a5N">
-                        <rect key="frame" x="10" y="8" width="300" height="28"/>
+                        <rect key="frame" x="10" y="8" width="181" height="28"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQj-yA-jbP">
-                                <rect key="frame" x="10" y="0.0" width="290" height="28"/>
+                                <rect key="frame" x="10" y="0.0" width="171" height="28"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -36,17 +36,30 @@
                             <constraint firstAttribute="bottom" secondItem="fQj-yA-jbP" secondAttribute="bottom" id="gLa-VF-D3H"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1G-lr-b9L">
+                        <rect key="frame" x="221" y="0.0" width="79" height="44"/>
+                        <fontDescription key="fontDescription" name="KohinoorTelugu-Medium" family="Kohinoor Telugu" pointSize="15"/>
+                        <state key="normal" title="Select User"/>
+                        <connections>
+                            <action selector="selectClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4k5-7f-kv4"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="kls-cj-a5N" secondAttribute="trailing" constant="10" id="Uk9-de-Dqq"/>
+                    <constraint firstItem="M1G-lr-b9L" firstAttribute="leading" secondItem="fQj-yA-jbP" secondAttribute="trailing" constant="30" id="Fc1-Se-ErX"/>
+                    <constraint firstItem="M1G-lr-b9L" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="SHn-mT-zlB"/>
                     <constraint firstItem="kls-cj-a5N" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="VTl-iS-SWk"/>
                     <constraint firstItem="kls-cj-a5N" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Zij-tT-e4w"/>
+                    <constraint firstAttribute="trailing" secondItem="M1G-lr-b9L" secondAttribute="trailing" constant="20" id="efy-NH-ROS"/>
+                    <constraint firstItem="M1G-lr-b9L" firstAttribute="centerY" secondItem="fQj-yA-jbP" secondAttribute="centerY" id="hTU-0H-WRV"/>
+                    <constraint firstAttribute="bottom" secondItem="M1G-lr-b9L" secondAttribute="bottom" id="neI-gt-IyI"/>
                     <constraint firstAttribute="bottom" secondItem="kls-cj-a5N" secondAttribute="bottom" constant="8" id="rrc-YX-lE2"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="label" destination="fQj-yA-jbP" id="fsG-Oc-0Mg"/>
+                <outlet property="selectButton" destination="M1G-lr-b9L" id="TzE-ZN-rLI"/>
             </connections>
             <point key="canvasLocation" x="139" y="117"/>
         </tableViewCell>

@@ -19,14 +19,18 @@ class RealmDataManager {
 }
 
 extension RealmDataManager: DataManagerProtocol {
-    //MARK: - Methods
-    func create<T>(_ model: T.Type, completion: @escaping ((T) -> Void)) throws where T : Storable {
-        guard let realm = realm, let model = model as? Object.Type else { throw RealmError.eitherRealmIsNilOrNotRealmSpecificModel }
+    func create<T>(_ model: T.Type, value: [T], completion: @escaping ((T) -> Void)) throws where T : Storable {
+        guard let realm = realm else {throw RealmError.eitherRealmIsNilOrNotRealmSpecificModel}
+        guard let model = model as? Object.Type else { throw RealmError.eitherRealmIsNilOrNotRealmSpecificModel }
         try realm.write  {
-            let newObject = realm.create(model, value: [], update: .all) as! T
-            //realm.create(model, value: [], update: false) as! T
+            let newObject = realm.create(model, value: value, update: .all) as! T
             completion(newObject)
         }
+    }
+    
+    //MARK: - Methods
+    func create<T>(_ model: T.Type, completion: @escaping ((T) -> Void)) throws where T : Storable {
+        
     }
     func save(object: Storable) throws {
         guard let realm = realm, let object = object as? Object else { throw RealmError.eitherRealmIsNilOrNotRealmSpecificModel }

@@ -10,8 +10,9 @@ import Foundation
 import RealmSwift
 
 class Order: Object {
-    @objc dynamic var orderId: Int = 0
+    @objc dynamic var orderId: Int32 = 0
     @objc dynamic var name: String = ""
+    @objc dynamic var orderDescription: String?
     
     @objc dynamic var createdDate: Date?
     @objc dynamic var expectedDeliveryDate: Date?
@@ -37,7 +38,7 @@ class Order: Object {
         return "orderId"
     }
     
-    convenience init(_ orderId: Int, _ name: String, createdDate: Date) {
+    convenience init(_ orderId: Int32, _ name: String, createdDate: Date) {
         self.init()
         self.orderId = orderId
         self.name = name

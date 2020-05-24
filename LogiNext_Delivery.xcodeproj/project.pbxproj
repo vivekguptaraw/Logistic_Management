@@ -41,6 +41,7 @@
 		80C0D47B24795C15004253BB /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D47A24795C15004253BB /* Helper.swift */; };
 		80C0D47D24795CBC004253BB /* UIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D47C24795CBC004253BB /* UIViewController+Additions.swift */; };
 		80C0D47F24795FDF004253BB /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D47E24795FDF004253BB /* UserListViewController.swift */; };
+		80EB3F39247A46350097D09A /* OrderListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EB3F38247A46350097D09A /* OrderListViewModel.swift */; };
 		F59E744954513B38140F044C /* Pods_LogiNext_DeliveryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24ECB4930136EEB43C0719C4 /* Pods_LogiNext_DeliveryTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +96,7 @@
 		80C0D47A24795C15004253BB /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		80C0D47C24795CBC004253BB /* UIViewController+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Additions.swift"; sourceTree = "<group>"; };
 		80C0D47E24795FDF004253BB /* UserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
+		80EB3F38247A46350097D09A /* OrderListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewModel.swift; sourceTree = "<group>"; };
 		8700553C82A0FF66F2E14D1F /* Pods-LogiNext_DeliveryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogiNext_DeliveryTests.debug.xcconfig"; path = "Target Support Files/Pods-LogiNext_DeliveryTests/Pods-LogiNext_DeliveryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BEA265A0CF088E7118E2598F /* Pods_LogiNext_Delivery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LogiNext_Delivery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F744A61F128F09B2642BCC7F /* Pods-LogiNext_Delivery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogiNext_Delivery.debug.xcconfig"; path = "Target Support Files/Pods-LogiNext_Delivery/Pods-LogiNext_Delivery.debug.xcconfig"; sourceTree = "<group>"; };
@@ -166,13 +168,13 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		8059C3C8247976A500322C50 /* OrderScreen */ = {
+		8059C3C8247976A500322C50 /* OrderDetailScreen */ = {
 			isa = PBXGroup;
 			children = (
 				8059C3D32479793700322C50 /* OrderDetailViewController.swift */,
 				8059C3D524797A6D00322C50 /* OrderDetailViewModel.swift */,
 			);
-			path = OrderScreen;
+			path = OrderDetailScreen;
 			sourceTree = "<group>";
 		};
 		80C0D41A247922D4004253BB = {
@@ -334,7 +336,8 @@
 		80C0D470247959B2004253BB /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				8059C3C8247976A500322C50 /* OrderScreen */,
+				80EB3F35247A45DB0097D09A /* OrderList */,
+				8059C3C8247976A500322C50 /* OrderDetailScreen */,
 				8059C3B8247961E100322C50 /* UserScreen */,
 				80C0D471247959B9004253BB /* HomeScreen */,
 			);
@@ -344,6 +347,7 @@
 		80C0D471247959B9004253BB /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
+				80EB3F36247A46050097D09A /* OrderList */,
 				80C0D472247959F6004253BB /* Navigator */,
 				80C0D42A247922D4004253BB /* HomeViewController.swift */,
 			);
@@ -364,6 +368,21 @@
 				80C0D47A24795C15004253BB /* Helper.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		80EB3F35247A45DB0097D09A /* OrderList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OrderList;
+			sourceTree = "<group>";
+		};
+		80EB3F36247A46050097D09A /* OrderList */ = {
+			isa = PBXGroup;
+			children = (
+				80EB3F38247A46350097D09A /* OrderListViewModel.swift */,
+			);
+			path = OrderList;
 			sourceTree = "<group>";
 		};
 		DA525D851FB1980B1930A16A /* Pods */ = {
@@ -558,6 +577,7 @@
 				80C0D427247922D4004253BB /* AppDelegate.swift in Sources */,
 				8059C3D42479793700322C50 /* OrderDetailViewController.swift in Sources */,
 				80C0D45F2479399B004253BB /* UserDTO.swift in Sources */,
+				80EB3F39247A46350097D09A /* OrderListViewModel.swift in Sources */,
 				80C0D45A247934DC004253BB /* Order.swift in Sources */,
 				8059C3D624797A6D00322C50 /* OrderDetailViewModel.swift in Sources */,
 				80C0D47D24795CBC004253BB /* UIViewController+Additions.swift in Sources */,

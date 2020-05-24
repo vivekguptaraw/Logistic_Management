@@ -14,7 +14,7 @@ public protocol Storable {
 }
 
 protocol DataManagerProtocol {
-    func create<T: Storable>(_ model: T.Type, completion: @escaping ((T) -> Void)) throws
+    func create<T: Storable>(_ model: T.Type, value: [T], completion: @escaping ((T) -> Void)) throws
     func save(object: Storable) throws
     func update(object: Storable) throws
     func delete(object: Storable) throws

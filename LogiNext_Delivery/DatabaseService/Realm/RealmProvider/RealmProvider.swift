@@ -36,7 +36,9 @@ struct RealmProvider {
     
     //MARK: - Realm Instances
     public static var `default`: Realm? = {
-        return RealmProvider(config: RealmProvider.defaultConfig).realm
+        var config = RealmProvider.defaultConfig
+        config.deleteRealmIfMigrationNeeded = true
+        return RealmProvider(config: config).realm
     }()
     public static var main: Realm? = {
         return RealmProvider(config: RealmProvider.mainConfig).realm

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 class BaseLogisticManager<T> {
     
@@ -39,7 +40,7 @@ class BaseLogisticManager<T> {
         try dbManager.save(object: object)
     }
     
-    func create<T>(_ model: T.Type, completion: @escaping ((T) -> Void)) throws where T : Storable {
-        try dbManager.create(model, completion: completion)
+    func create<T>(_ model: T.Type, value: [T], completion: @escaping ((T) -> Void)) throws where T : Object {
+        try dbManager.create(model, value: value, completion: completion)
     }
 }

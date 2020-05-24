@@ -54,10 +54,17 @@ extension UserListViewController: UITableViewDataSource, UITableViewDelegate {
         if let cell = tableView.dequeueReusableCell(withIdentifier: UserTableViewCell.defaultNibName, for: indexPath) as? UserTableViewCell {
             if let user = self.viewModel?.users[indexPath.row] {
                 cell.configure(user, at: indexPath)
+                cell.selectedDelegate = self
             }
             return cell
         }
         return UITableViewCell()
+    }
+}
+
+extension UserListViewController: UserSelected {
+    func selectedUser(model: UserDTO) {
+        self.viewModel?.logisiticsMainViewModel?.currentUser = model
     }
 }
 
