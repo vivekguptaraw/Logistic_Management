@@ -18,8 +18,8 @@ class OrderDetailViewModel {
         self.logisiticsMainViewModel = logistics
     }
     
-    func createOrder(name: String, date: Date) {
-        self.logisiticsMainViewModel?.createOrder(name: name, date: date, completion: { (orderDTO) in
+    func createOrder(name: String, desc: String, date: Date) {
+        self.logisiticsMainViewModel?.createOrder(name: name, desc: desc, date: date, completion: { (orderDTO) in
             self.successBlock?()
         })
     }

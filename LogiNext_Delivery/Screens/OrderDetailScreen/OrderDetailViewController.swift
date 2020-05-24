@@ -37,17 +37,8 @@ class OrderDetailViewController: UIViewController {
         super.viewDidLoad()
         self.setInitialData()
         self.title = ""
-        self.setViewModelCallBack()
+        self.setCallBacks()
         self.checkIfCreateOrder()
-        self.view.addTapGesture {
-            print("Editing ended")
-        }
-    }
-    
-    func setViewModelCallBack() {
-        self.viewModel?.successBlock = {
-            print("Order Saved successfully..")
-        }
     }
     
     func checkIfCreateOrder() {
@@ -60,11 +51,23 @@ class OrderDetailViewController: UIViewController {
             self.orderTitleTextField.becomeFirstResponder()
             self.orderTitleTextField.delegate = self
             self.orderDescTextField.delegate = self
+            orderTitleTextField.attributedPlaceholder = NSAttributedString(string: "Order Title",
+                                                                           attributes: [NSAttributedString.Key.foregroundColor: UIColor.orange.withAlphaComponent(0.7), NSAttributedString.Key.font: UIFont(name: "DIN Alternate", size: 17)])
         }
     }
     
-    static func classFunc() {
-        
+    func setCallBacks() {
+        self.view.addTapGesture {
+            print("Editing ended")
+        }
+        self.viewModel?.successBlock = {[weak self] in
+            print("Order Saved successfully..")
+            guard let slf = self else {return}
+            slf.createOrderButton.setTitle("Order added...", for: .normal)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                slf.navigationController?.popViewController(animated: true)
+            }
+        }
     }
     
     static func staticFunc() {
@@ -77,6 +80,7 @@ class OrderDetailViewController: UIViewController {
     }
     
     @IBAction func createOrderClicked(_ sender: Any) {
+        self.viewModel?.createOrder(name: orderTitleTextField.text ?? "N/A", desc: orderDescTextField.text ?? "N/A", date: Date())
     }
     
     
@@ -86,21 +90,14 @@ class OrderDetailViewController: UIViewController {
     }
     
     @objc func keyboardWillShow(notification:NSNotification){
-
-//        let userInfo = notification.userInfo!
-//        var keyBoardFrame: CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        //keyboardFrame = self.view.convert(keyboardFrame, from: nil)
-        //var contentInset:UIEdgeInsets = self.scrollView.contentInset
-        //contentInset.bottom = keyboardFrame.size.height + 20
-        //scrollView.contentInset = contentInset
         if let userInfo = notification.userInfo, let keyBoardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            if let superview = self.orderDescTextField.superview?.superview?.superview?.superview {
-                if keyBoardFrame.cgRectValue.intersects(self.view.convert(self.orderDescTextField.frame, from: orderDescTextField)) {
-                let bottomPadding = keyBoardFrame.cgRectValue.intersection(self.view.convert(self.orderDescTextField.frame, from: orderDescTextField)).origin.y - keyBoardFrame.cgRectValue.origin.y + self.orderDescTextField.frame.height + 30
-                    var contentInset:UIEdgeInsets = self.scrollView.contentInset
-                    contentInset.bottom = bottomPadding
-                    scrollView.contentInset = contentInset
-                }
+        
+            if keyBoardFrame.cgRectValue.intersects(self.view.convert(self.orderDescTextField.frame, from: orderDescTextField)) {
+            let bottomPadding = keyBoardFrame.cgRectValue.intersection(self.view.convert(self.orderDescTextField.frame, from: orderDescTextField)).origin.y - keyBoardFrame.cgRectValue.origin.y + self.orderDescTextField.frame.height + 30
+                var contentInset:UIEdgeInsets = self.scrollView.contentInset
+                contentInset.bottom = bottomPadding
+                scrollView.contentInset = contentInset
+                scrollView.setContentOffset(CGPoint(x: 0, y:  bottomPadding / 2), animated: true)
             }
         }
     }
