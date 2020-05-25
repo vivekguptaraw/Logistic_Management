@@ -25,7 +25,7 @@ extension TapGestureNeeded where Self: UIView {
         self.gestureRecognizers                 = nil
         self.onClickEvent                       = onClick
         self.isUserInteractionEnabled           = true
-        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIView.endEditing(_:)))
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(screenTapped))
         self.addGestureRecognizer(tapGesture)
     }
 }

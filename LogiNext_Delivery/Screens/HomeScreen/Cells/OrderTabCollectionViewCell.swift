@@ -21,6 +21,15 @@ class OrderTabCollectionViewCell: UICollectionViewCell, ConfigurableCell {
     
     func configure(_ item: String, at indexPath: IndexPath) {
         self.titleLabel.text = item
+        
+    }
+    
+    func highLightSelected(selectedIndex: Int, indexPath: Int) {
+        if selectedIndex == indexPath {
+            self.backgroundColor =  UIColor(hexString: "#FFEF8C")
+        } else {
+            self.backgroundColor =  .clear
+        }
     }
 
 }

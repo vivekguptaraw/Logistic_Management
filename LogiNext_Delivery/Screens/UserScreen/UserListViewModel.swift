@@ -6,15 +6,16 @@
 //  Copyright © 2020 Vivek Gupta. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class UserListViewModel {
     fileprivate(set) var users: [UserDTO] = []
     
     var logisiticsMainViewModel: LogisticViewModel?
     var reloadBlock: (() -> Void)?
+    var navigator: IHomeNavigator?
     
-    init(logistics: LogisticViewModel) {
+    init(logistics: LogisticViewModel, orderDTO: OrderDTO? = nil) {
         self.logisiticsMainViewModel = logistics
     }
     

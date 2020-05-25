@@ -47,6 +47,14 @@ class LogisticViewModel {
         manager.getAllUser(sorted: Sorted(key: "name", ascending: true), completion: completion)
     }
     
+    func pickUpOrder(order: OrderDTO, completion: @escaping (OrderDTO) -> Void) {
+        manager.pickUpOrder(order: order) { (dto) in
+            if let dt = dto {
+                completion(dt)
+            }
+        }
+    }
+    
     func createOrder(name: String, desc: String, date: Date, completion: @escaping (OrderDTO) -> Void) {
         var orderDTO = OrderDTO(id: Int32(date.timeIntervalSince1970), name: name, desc: desc)
         if let user = self.currentUser {
@@ -62,6 +70,10 @@ class LogisticViewModel {
         manager.getAllOrders(userId: nil) { (orderDTOs) in
             completion(orderDTOs)
         }
+    }
+    
+    func getOrdersFor(predicate: NSPredicate?, completion: ([OrderDTO]?) -> Void) {
+        manager.getOrdersFor(predicate: predicate, completion: completion)
     }
     
     

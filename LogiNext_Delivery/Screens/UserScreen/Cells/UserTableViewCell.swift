@@ -27,6 +27,17 @@ class UserTableViewCell: UITableViewCell, ConfigurableCell {
         label.text = item.firstName
         user = item
     }
+    
+    func setUserHighlight(uid: Int) {
+        if let usr = user, uid == usr.userId {
+            selectButton.setTitle("Selected", for: .normal)
+            selectButton.setTitleColor(UIColor.init(hexString: "#34C759"), for: .normal)
+        } else {
+            selectButton.setTitle("Select User", for: .normal)
+            selectButton.setTitleColor(UIColor.init(hexString: "#3B87B2"), for: .normal)
+        }
+    }
+    
     @IBAction func selectClicked(_ sender: Any) {
         guard let usr = self.user else {return}
         selectedDelegate?.selectedUser(model: usr)

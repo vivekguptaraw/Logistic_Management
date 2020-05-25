@@ -15,6 +15,7 @@ class Order: Object {
     @objc dynamic var orderDescription: String?
     
     @objc dynamic var createdDate: Date?
+    @objc dynamic var pickedUpDate: Date?
     @objc dynamic var expectedDeliveryDate: Date?
     @objc dynamic var deliveredDate: Date?
     @objc dynamic var cancellededDate: Date?
@@ -29,7 +30,7 @@ class Order: Object {
     @objc dynamic var deliveredByUser: User?
     @objc dynamic var cancelledByUser: User?
     
-    //let ofUser = LinkingObjects(fromType: User.self, property: "Order")
+    let ofUser = LinkingObjects(fromType: User.self, property: "assignedOrders")
     
     
     @objc dynamic var currentLocation: String = ""

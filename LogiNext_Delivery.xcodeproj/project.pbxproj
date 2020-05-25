@@ -18,6 +18,10 @@
 		8059C3D42479793700322C50 /* OrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059C3D32479793700322C50 /* OrderDetailViewController.swift */; };
 		8059C3D624797A6D00322C50 /* OrderDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059C3D524797A6D00322C50 /* OrderDetailViewModel.swift */; };
 		806B145F247A866C00F51043 /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806B145E247A866C00F51043 /* UIColor+Additions.swift */; };
+		806B1462247A8C9600F51043 /* VGRadio.xib in Resources */ = {isa = PBXBuildFile; fileRef = 806B1461247A8C9600F51043 /* VGRadio.xib */; };
+		806B1464247A8CAA00F51043 /* VGRadio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806B1463247A8CAA00F51043 /* VGRadio.swift */; };
+		806B1468247A8F5600F51043 /* StatusCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806B1466247A8F5600F51043 /* StatusCollectionViewCell.swift */; };
+		806B1469247A8F5600F51043 /* StatusCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 806B1467247A8F5600F51043 /* StatusCollectionViewCell.xib */; };
 		80C0D427247922D4004253BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D426247922D4004253BB /* AppDelegate.swift */; };
 		80C0D429247922D4004253BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D428247922D4004253BB /* SceneDelegate.swift */; };
 		80C0D42B247922D4004253BB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D42A247922D4004253BB /* HomeViewController.swift */; };
@@ -42,7 +46,7 @@
 		80C0D47B24795C15004253BB /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D47A24795C15004253BB /* Helper.swift */; };
 		80C0D47D24795CBC004253BB /* UIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D47C24795CBC004253BB /* UIViewController+Additions.swift */; };
 		80C0D47F24795FDF004253BB /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D47E24795FDF004253BB /* UserListViewController.swift */; };
-		80EB3F39247A46350097D09A /* OrderListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EB3F38247A46350097D09A /* OrderListViewModel.swift */; };
+		80EB3F39247A46350097D09A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EB3F38247A46350097D09A /* HomeViewModel.swift */; };
 		80EB3F3F247A4D4F0097D09A /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EB3F3D247A4D4F0097D09A /* OrderTableViewCell.swift */; };
 		80EB3F40247A4D4F0097D09A /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80EB3F3E247A4D4F0097D09A /* OrderTableViewCell.xib */; };
 		80EB3F43247A62EA0097D09A /* OrderTabCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EB3F41247A62EA0097D09A /* OrderTabCollectionViewCell.swift */; };
@@ -74,6 +78,10 @@
 		8059C3D32479793700322C50 /* OrderDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailViewController.swift; sourceTree = "<group>"; };
 		8059C3D524797A6D00322C50 /* OrderDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewModel.swift; sourceTree = "<group>"; };
 		806B145E247A866C00F51043 /* UIColor+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
+		806B1461247A8C9600F51043 /* VGRadio.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VGRadio.xib; sourceTree = "<group>"; };
+		806B1463247A8CAA00F51043 /* VGRadio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGRadio.swift; sourceTree = "<group>"; };
+		806B1466247A8F5600F51043 /* StatusCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCollectionViewCell.swift; sourceTree = "<group>"; };
+		806B1467247A8F5600F51043 /* StatusCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatusCollectionViewCell.xib; sourceTree = "<group>"; };
 		80C0D423247922D4004253BB /* LogiNext_Delivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogiNext_Delivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80C0D426247922D4004253BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80C0D428247922D4004253BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,7 +110,7 @@
 		80C0D47A24795C15004253BB /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		80C0D47C24795CBC004253BB /* UIViewController+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Additions.swift"; sourceTree = "<group>"; };
 		80C0D47E24795FDF004253BB /* UserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
-		80EB3F38247A46350097D09A /* OrderListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewModel.swift; sourceTree = "<group>"; };
+		80EB3F38247A46350097D09A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		80EB3F3D247A4D4F0097D09A /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		80EB3F3E247A4D4F0097D09A /* OrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTableViewCell.xib; sourceTree = "<group>"; };
 		80EB3F41247A62EA0097D09A /* OrderTabCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTabCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -181,10 +189,30 @@
 		8059C3C8247976A500322C50 /* OrderDetailScreen */ = {
 			isa = PBXGroup;
 			children = (
+				806B1465247A8F3700F51043 /* Cells */,
+				806B1460247A8C7400F51043 /* CustomSelectable */,
 				8059C3D32479793700322C50 /* OrderDetailViewController.swift */,
 				8059C3D524797A6D00322C50 /* OrderDetailViewModel.swift */,
 			);
 			path = OrderDetailScreen;
+			sourceTree = "<group>";
+		};
+		806B1460247A8C7400F51043 /* CustomSelectable */ = {
+			isa = PBXGroup;
+			children = (
+				806B1461247A8C9600F51043 /* VGRadio.xib */,
+				806B1463247A8CAA00F51043 /* VGRadio.swift */,
+			);
+			path = CustomSelectable;
+			sourceTree = "<group>";
+		};
+		806B1465247A8F3700F51043 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				806B1466247A8F5600F51043 /* StatusCollectionViewCell.swift */,
+				806B1467247A8F5600F51043 /* StatusCollectionViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		80C0D41A247922D4004253BB = {
@@ -392,7 +420,7 @@
 		80EB3F36247A46050097D09A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				80EB3F38247A46350097D09A /* OrderListViewModel.swift */,
+				80EB3F38247A46350097D09A /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -503,11 +531,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				806B1462247A8C9600F51043 /* VGRadio.xib in Resources */,
 				80EB3F40247A4D4F0097D09A /* OrderTableViewCell.xib in Resources */,
 				8059C3C4247962AC00322C50 /* UserTableViewCell.xib in Resources */,
 				80C0D433247922D6004253BB /* LaunchScreen.storyboard in Resources */,
 				80EB3F44247A62EA0097D09A /* OrderTabCollectionViewCell.xib in Resources */,
 				8059C3CE247977C600322C50 /* Order.storyboard in Resources */,
+				806B1469247A8F5600F51043 /* StatusCollectionViewCell.xib in Resources */,
 				80C0D430247922D6004253BB /* Assets.xcassets in Resources */,
 				80C0D42E247922D4004253BB /* Main.storyboard in Resources */,
 			);
@@ -603,14 +633,16 @@
 				80C0D427247922D4004253BB /* AppDelegate.swift in Sources */,
 				8059C3D42479793700322C50 /* OrderDetailViewController.swift in Sources */,
 				80C0D45F2479399B004253BB /* UserDTO.swift in Sources */,
-				80EB3F39247A46350097D09A /* OrderListViewModel.swift in Sources */,
+				80EB3F39247A46350097D09A /* HomeViewModel.swift in Sources */,
 				80C0D45A247934DC004253BB /* Order.swift in Sources */,
 				8059C3D624797A6D00322C50 /* OrderDetailViewModel.swift in Sources */,
 				80C0D47D24795CBC004253BB /* UIViewController+Additions.swift in Sources */,
+				806B1468247A8F5600F51043 /* StatusCollectionViewCell.swift in Sources */,
 				80C0D47B24795C15004253BB /* Helper.swift in Sources */,
 				80C0D455247933C3004253BB /* URL+Additions.swift in Sources */,
 				80C0D46624793D9C004253BB /* MappableProtocol.swift in Sources */,
 				8059C3BE2479624A00322C50 /* NibLoadbale.swift in Sources */,
+				806B1464247A8CAA00F51043 /* VGRadio.swift in Sources */,
 				80C0D46E24794B85004253BB /* LogisticViewModel.swift in Sources */,
 				806B145F247A866C00F51043 /* UIColor+Additions.swift in Sources */,
 				80C0D4522479337E004253BB /* RealmProvider.swift in Sources */,

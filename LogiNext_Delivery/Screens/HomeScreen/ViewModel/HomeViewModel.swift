@@ -8,7 +8,7 @@
 
 import Foundation
 
-class OrderListViewModel {
+class HomeViewModel {
     var logisiticsMainViewModel: LogisticViewModel?
     fileprivate(set) var allOrders = [OrderDTO]()
     fileprivate(set) var tabHeadings = [String]()
@@ -35,7 +35,19 @@ class OrderListViewModel {
         })
     }
     
-    func getCurrentUsersOrdersList() {
+    func loadOrdersAsPerTabIndex(index: Int) {
+        let tabValue = OrderTabs.valueAtIndex(index: index)
+        //var predicate: NSPredicate?
+        if tabValue == .All {
+            self.getAllOrdersList()
+        } else if tabValue == .MyOrders  {
+            guard let id = self.logisiticsMainViewModel?.currentUser?.userId else {return}
+            let predicate = NSPredicate(format: "%K == %@", argumentArray: ["createdByUser.userId", id])
+            self.logisiticsMainViewModel?.getOrdersFor(predicate: predicate, completion: { (dtos) in
+                self.allOrders = dtos ?? []
+                self.reloadBlock?()
+            })
+        }
         
     }
 }

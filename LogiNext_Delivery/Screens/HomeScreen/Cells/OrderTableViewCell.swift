@@ -31,6 +31,9 @@ class OrderTableViewCell: UITableViewCell, ConfigurableCell {
         self.orderDTO = item
         titleLabel.text = item.name
         descriptionLabel.text = item.orderDescription
+        statusValueLabel.text = item.status.rawValue
+        self.dateLabel.text = item.getDateString(date: item.createdDate)
+        self.statusValueLabel.textColor = item.getStatusColor()
     }
     
     override func layoutSubviews() {

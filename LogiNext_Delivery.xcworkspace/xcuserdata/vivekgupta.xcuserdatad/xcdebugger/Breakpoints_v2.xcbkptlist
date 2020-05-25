@@ -7,16 +7,272 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BAF5A445-C9B6-47BA-A1ED-4BFD9392B1AB"
+            uuid = "74104D9A-DD5E-4AF2-B812-119DA7CB32EA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LogiNext_Delivery/Screens/OrderDetailScreen/OrderDetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "setCallBacks()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EFCB6E6F-ED6D-4C38-84F7-B7CF61213369"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LogiNext_Delivery/Screens/OrderDetailScreen/OrderDetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "setCallBacks()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EFCB6E6F-ED6D-4C38-84F7-B7CF61213369 - 376b7a1eac6cd387"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LogiNext_Delivery.OrderDetailViewController.setCallBacks() -&gt; ()"
+                  moduleName = "LogiNext_Delivery"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vivekgupta/Desktop/MyOwnDemoApps/Loginext/LogiNext_Delivery/LogiNext_Delivery/Screens/OrderDetailScreen/OrderDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "118"
+                  endingLineNumber = "118"
+                  offsetFromSymbolStart = "584">
+               </Location>
+               <Location
+                  uuid = "EFCB6E6F-ED6D-4C38-84F7-B7CF61213369 - dde16aec5f072819"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 () -&gt; () in LogiNext_Delivery.OrderDetailViewController.setCallBacks() -&gt; ()"
+                  moduleName = "LogiNext_Delivery"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vivekgupta/Desktop/MyOwnDemoApps/Loginext/LogiNext_Delivery/LogiNext_Delivery/Screens/OrderDetailScreen/OrderDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F9FBA64E-9F3D-4FBB-A51D-4C3CDACD4CCB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LogiNext_Delivery/Screens/OrderDetailScreen/OrderDetailViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "pickUpOrder()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BE6F51DA-7B3B-4E52-950B-B437C4F0EA33"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LogiNext_Delivery/Screens/HomeScreen/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
-            landmarkName = "collectionView(_:layout:sizeForItemAt:)"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "setViewModel()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "96F8D238-849F-4792-A683-E41C35B33181"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LogiNext_Delivery/Screens/HomeScreen/ViewModel/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "getAllOrdersList()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8E8BA5C6-ED21-418F-97EE-D530E3786B3E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LogiNext_Delivery/Screens/HomeScreen/ViewModel/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "getAllOrdersList()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8E8BA5C6-ED21-418F-97EE-D530E3786B3E - 919c12ca13bc0d14"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LogiNext_Delivery.HomeViewModel.getAllOrdersList() -&gt; ()"
+                  moduleName = "LogiNext_Delivery"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vivekgupta/Desktop/MyOwnDemoApps/Loginext/LogiNext_Delivery/LogiNext_Delivery/Screens/HomeScreen/ViewModel/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "41">
+               </Location>
+               <Location
+                  uuid = "8E8BA5C6-ED21-418F-97EE-D530E3786B3E - bce939f9d9b8af35"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;LogiNext_Delivery.OrderDTO&gt;&gt;) -&gt; () in LogiNext_Delivery.HomeViewModel.getAllOrdersList() -&gt; ()"
+                  moduleName = "LogiNext_Delivery"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vivekgupta/Desktop/MyOwnDemoApps/Loginext/LogiNext_Delivery/LogiNext_Delivery/Screens/HomeScreen/ViewModel/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "106">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "378CAA2B-C58C-4F6D-AE0F-04CC6C6FFD67"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LogiNext_Delivery/Screens/OrderDetailScreen/OrderDetailViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "pickUpOrder()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "378CAA2B-C58C-4F6D-AE0F-04CC6C6FFD67 - 7cd0385212cafb5f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LogiNext_Delivery.OrderDetailViewModel.pickUpOrder() -&gt; ()"
+                  moduleName = "LogiNext_Delivery"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vivekgupta/Desktop/MyOwnDemoApps/Loginext/LogiNext_Delivery/LogiNext_Delivery/Screens/OrderDetailScreen/OrderDetailViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "725">
+               </Location>
+               <Location
+                  uuid = "378CAA2B-C58C-4F6D-AE0F-04CC6C6FFD67 - 934092f90576f960"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (LogiNext_Delivery.OrderDTO) -&gt; () in LogiNext_Delivery.OrderDetailViewModel.pickUpOrder() -&gt; ()"
+                  moduleName = "LogiNext_Delivery"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vivekgupta/Desktop/MyOwnDemoApps/Loginext/LogiNext_Delivery/LogiNext_Delivery/Screens/OrderDetailScreen/OrderDetailViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "120">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FEAC5F9A-C121-40AE-A96D-8104AF3D4397"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LogiNext_Delivery/ViewModel/LogisticViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "pickUpOrder(order:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "05176E29-CA41-4BAF-B289-72EAA95A1C67"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LogiNext_Delivery/ViewModel/LogisticViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "pickUpOrder(order:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CFFB8378-F24D-456A-B812-E926B2480FC8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LogiNext_Delivery/DatabaseService/LogisticManager/User/LogisticManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "pickUpOrder(order:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DEC0AB7F-C7AA-4E39-A243-81D88D2B2F13"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LogiNext_Delivery/Screens/OrderDetailScreen/OrderDetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "isPickUp()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

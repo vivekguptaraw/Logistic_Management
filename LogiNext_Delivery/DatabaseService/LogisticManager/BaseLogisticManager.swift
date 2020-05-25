@@ -32,9 +32,8 @@ class BaseLogisticManager<T> {
         try dbManager.delete(object: object)
     }
     
-    func update(object: Storable) throws {
-        
-        try dbManager.update(object: object)
+    func update(object: Storable, completion: @escaping ((Bool) -> Void)) throws {
+        try dbManager.update(object: object, completion: completion)
     }
     func save(object: Storable) throws {
         try dbManager.save(object: object)

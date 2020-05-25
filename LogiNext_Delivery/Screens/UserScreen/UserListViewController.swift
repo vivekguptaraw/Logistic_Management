@@ -36,12 +36,17 @@ class UserListViewController: UIViewController {
         textField.returnKeyType = .done
         textField.delegate = self
         textField.becomeFirstResponder()
-        tap = UITapGestureRecognizer(target: self, action: #selector(didTap))
-        self.view.addGestureRecognizer(tap!)
+//        tap = UITapGestureRecognizer(target: self, action: #selector(didTap))
+//        self.view.addGestureRecognizer(tap!)
+        self.view.addTapGesture(onClick: didTap)
     }
     
     @objc func didTap() {
-        self.view.endEditing(true)
+        if self.textField.isFirstResponder {
+            self.view.endEditing(true)
+        } else {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }
 
@@ -55,6 +60,10 @@ extension UserListViewController: UITableViewDataSource, UITableViewDelegate {
             if let user = self.viewModel?.users[indexPath.row] {
                 cell.configure(user, at: indexPath)
                 cell.selectedDelegate = self
+                if let uid = self.viewModel?.logisiticsMainViewModel?.currentUser?.userId {
+                    cell.setUserHighlight(uid: uid)
+                }
+                
             }
             return cell
         }
@@ -65,13 +74,16 @@ extension UserListViewController: UITableViewDataSource, UITableViewDelegate {
 extension UserListViewController: UserSelected {
     func selectedUser(model: UserDTO) {
         self.viewModel?.logisiticsMainViewModel?.currentUser = model
+        self.dismiss(animated: true, completion: {
+            self.viewModel?.navigator?.userUpdated?()
+        })
     }
 }
 
 
 extension UserListViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        guard let txt = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {return false}
+        guard let txt = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines), !txt.isEmpty else {return false}
         textField.text = nil
         textField.resignFirstResponder()
         viewModel?.addNewUser(name: txt, date: Date())

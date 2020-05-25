@@ -35,16 +35,22 @@ extension RealmDataManager: DataManagerProtocol {
     func save(object: Storable) throws {
         guard let realm = realm, let object = object as? Object else { throw RealmError.eitherRealmIsNilOrNotRealmSpecificModel }
         try realm.write {
-            realm.add(object)
+            realm.add(object, update: .all)
         }
     }
-    func update(object: Storable) throws {
+    func update(object: Storable, completion: @escaping ((Bool) -> Void)) throws {
         guard let realm = realm, let object = object as? Object else {
             throw RealmError.eitherRealmIsNilOrNotRealmSpecificModel
         }
-        try realm.write {
-            realm.add(object, update: .modified)
+        do {
+            try realm.write {
+                realm.add(object, update: .modified)
+                completion(true)
+            }
+        } catch {
+            completion(false)
         }
+        
     }
     func delete(object: Storable) throws {
         guard let realm = realm, let object = object as? Object else { throw RealmError.eitherRealmIsNilOrNotRealmSpecificModel }

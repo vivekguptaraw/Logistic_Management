@@ -6,13 +6,14 @@
 //  Copyright © 2020 Vivek Gupta. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct OrderDTO {
     var orderId: Int32
     var name: String
     var orderDescription: String?
     var createdDate: Date?
+    var pickedUpDate: Date?
     var expectedDeliveryDate: Date?
     var deliveredDate: Date?
     var cancellededDate: Date?
@@ -33,6 +34,27 @@ struct OrderDTO {
         self.orderDescription = desc
     }
     
+    func getLastUpdatedDate() -> Date? {
+        var dt: Date?
+        if isQueued {
+            dt = createdDate
+        }
+        if isInTransit {
+            dt = pickedUpDate
+        }
+        if isDelivered {
+            dt = deliveredDate
+        }
+        if isCancelled {
+            dt = cancellededDate
+        }
+        return dt
+    }
+    
+    func getDateString(date: Date?) -> String {
+        return Helper.getString(from: date)
+    }
+    
     mutating func created(byUser: UserDTO, date: Date) {
         self.createdByUser = byUser
         self.createdDate = date
@@ -42,6 +64,13 @@ struct OrderDTO {
     mutating func pickUp(byUser: UserDTO) {
         self.pickedUpByUser = byUser
         self.isInTransit = true
+        self.pickedUpDate = Date()
+    }
+    
+    func getStatusColor() -> UIColor {
+        let color = UIColor(hexString: OrderDTO.OrderStatusColor.color(status: self.status).rawValue)
+        return color
+        
     }
     
     mutating func cancelled(byUser: UserDTO) {
@@ -52,6 +81,46 @@ struct OrderDTO {
     mutating func delivered(byUser: UserDTO) {
         self.deliveredByUser = byUser
         self.isDelivered = true
+    }
+    
+    var status: OrderStatus {
+        var st: OrderStatus = .Unknown
+        if isQueued {
+            st = .Queued
+        }
+        if isInTransit {
+            st = .InTransit
+        }
+        if isDelivered {
+            st = .Delivered
+        }
+        if isCancelled {
+            st = .Cancelled
+        }
+        return st
+    }
+    
+    enum OrderStatusColor: String {
+        case Orange = "#FF8C00"
+        case Blue = "#1464F4"
+        case Green = "#32CD32"
+        case Red = "#FF0000"
+        case unknown = "#A9A9A9"
+        
+        static func color(status: OrderStatus) -> OrderStatusColor {
+            switch  status {
+            case .Queued:
+                return .Orange
+            case .InTransit:
+                return .Blue
+            case .Delivered:
+                return .Green
+            case .Cancelled:
+                return .Red
+            case .Unknown:
+                return .unknown
+            }
+        }
     }
 }
 
@@ -65,6 +134,7 @@ extension OrderDTO: MappableProtocol {
         model.name = self.name
         model.orderDescription =  self.orderDescription
         model.createdDate = self.createdDate
+        model.pickedUpDate = self.pickedUpDate
         model.expectedDeliveryDate = self.expectedDeliveryDate
         model.deliveredDate = self.deliveredDate
         model.cancellededDate = self.cancellededDate
@@ -80,7 +150,36 @@ extension OrderDTO: MappableProtocol {
     }
     
     static func mapFromPersistenceObject(_ object: Order) -> OrderDTO {
-        let orderDto = OrderDTO(id: object.orderId, name: object.name, desc: object.orderDescription)
+        var orderDto = OrderDTO(id: object.orderId, name: object.name, desc: object.orderDescription)
+        orderDto.createdDate = object.createdDate
+        orderDto.pickedUpDate = object.pickedUpDate
+        orderDto.expectedDeliveryDate = object.expectedDeliveryDate
+        orderDto.deliveredDate = object.deliveredDate
+        orderDto.cancellededDate = object.cancellededDate
+        orderDto.isQueued = object.isQueued
+        orderDto.isInTransit = object.isInTransit
+        orderDto.isDelivered = object.isDelivered
+        orderDto.isCancelled = object.isCancelled
+        if let usr = object.createdByUser {
+            orderDto.createdByUser = UserDTO.mapFromPersistenceObject(usr)
+        }
+        if let usr = object.pickedUpByUser {
+            orderDto.pickedUpByUser = UserDTO.mapFromPersistenceObject(usr)
+        }
+        if let usr = object.deliveredByUser {
+            orderDto.deliveredByUser = UserDTO.mapFromPersistenceObject(usr)
+        }
+        if let usr = object.cancelledByUser {
+            orderDto.cancelledByUser = UserDTO.mapFromPersistenceObject(usr)
+        }
         return orderDto
     }
+}
+
+enum OrderStatus: String {
+    case Queued = "Queued"
+    case InTransit = "In Transit"
+    case Delivered = "Delivered"
+    case Cancelled = "Cancelled"
+    case Unknown = "N/A"
 }

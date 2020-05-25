@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="StatusCollectionViewCell" customModule="LogiNext_Delivery" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="192" height="88"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="192" height="88"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ygo-Pz-tY0">
+                        <rect key="frame" x="0.0" y="0.0" width="192" height="88"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fy2-v1-mtb">
+                                <rect key="frame" x="5" y="5" width="51.5" height="83"/>
+                                <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fMy-SG-KMt" customClass="VGRadio" customModule="LogiNext_Delivery" customModuleProvider="target">
+                                <rect key="frame" x="123" y="29.5" width="34" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="IhZ-ah-Wn2"/>
+                                    <constraint firstAttribute="width" constant="34" id="hjI-s6-NKv"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="fy2-v1-mtb" firstAttribute="leading" secondItem="ygo-Pz-tY0" secondAttribute="leading" constant="5" id="8cN-Od-78f"/>
+                            <constraint firstAttribute="trailing" secondItem="fMy-SG-KMt" secondAttribute="trailing" constant="35" id="G47-sq-q0O"/>
+                            <constraint firstAttribute="bottom" secondItem="fy2-v1-mtb" secondAttribute="bottom" id="G61-4R-twI"/>
+                            <constraint firstItem="fy2-v1-mtb" firstAttribute="top" secondItem="ygo-Pz-tY0" secondAttribute="top" constant="5" id="fUD-EJ-bPW"/>
+                            <constraint firstItem="fMy-SG-KMt" firstAttribute="centerY" secondItem="fy2-v1-mtb" secondAttribute="centerY" id="uUg-31-YgK"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="ygo-Pz-tY0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="EDw-LO-bOw"/>
+                <constraint firstItem="ygo-Pz-tY0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="JK2-FE-xST"/>
+                <constraint firstAttribute="trailing" secondItem="ygo-Pz-tY0" secondAttribute="trailing" id="P3w-f3-k78"/>
+                <constraint firstAttribute="bottom" secondItem="ygo-Pz-tY0" secondAttribute="bottom" id="pWE-6w-iHC"/>
+                <constraint firstAttribute="trailing" secondItem="ygo-Pz-tY0" secondAttribute="trailing" id="xlf-rE-be5"/>
+                <constraint firstItem="ygo-Pz-tY0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="yoy-J4-7C1"/>
+                <constraint firstItem="ygo-Pz-tY0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="zvq-nO-YOa"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="192" height="88"/>
+            <connections>
+                <outlet property="radioView" destination="fMy-SG-KMt" id="uH0-sb-5fe"/>
+                <outlet property="titleLabel" destination="fy2-v1-mtb" id="cK4-7W-inI"/>
+            </connections>
+            <point key="canvasLocation" x="76.811594202898561" y="75.669642857142847"/>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -23,19 +23,23 @@ class HomeViewController: UIViewController {
     var selectedTabIndex: Int = 0
     var menuTap: UITapGestureRecognizer?
     var isMenuOpen: Bool = false
-    
-    var viewModel: OrderListViewModel?
+    @IBOutlet weak var userNameLabel: UILabel!
+    let bottomPadding: CGFloat = 10
+    var viewModel: HomeViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.menuBottomY.constant = -(self.userButton.frame.height + 20)
+        self.menuBottomY.constant = -(self.userButton.frame.height + bottomPadding)
         navigator = HomeNavigator(nav: self.navigationController)
         setUIElements()
         setViewModel()
         getAllOrders()
+        setMenuButtons()
     }
     
     func setUIElements() {
+        ordersTableView.estimatedRowHeight = 300
+        ordersTableView.rowHeight = UITableView.automaticDimension
         ordersTableView.dataSource = self
         ordersTableView.delegate = self
         menuCollectionView.dataSource = self
@@ -48,6 +52,11 @@ class HomeViewController: UIViewController {
         ordersTableView.separatorStyle = .none
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
     func getAllOrders() {
         self.viewModel?.getAllOrdersList()
         self.menuCollectionView.reloadData()
@@ -56,17 +65,37 @@ class HomeViewController: UIViewController {
     
     func setViewModel() {
         if let logistic = navigator?.logisticViewModel {
-            viewModel = OrderListViewModel(logistics: logistic)
+            viewModel = HomeViewModel(logistics: logistic)
+            self.setUserName()
             self.viewModel?.reloadBlock = {
                 self.ordersTableView.reloadData()
             }
         }
-        
+        navigator?.userUpdated = {
+            self.setMenuButtons()
+            self.setUserName()
+            self.viewModel?.loadOrdersAsPerTabIndex(index: self.selectedTabIndex)
+        }
+        navigator?.orderUpdated = {
+            self.viewModel?.getAllOrdersList()
+        }
+    }
+    
+    func setUserName() {
+        self.userNameLabel.text = navigator?.logisticViewModel.currentUser?.firstName
+    }
+    
+    func setMenuButtons() {
+        if self.viewModel?.logisiticsMainViewModel?.currentUser == nil {
+            self.orderButton.isHidden = true
+        } else {
+            self.orderButton.isHidden = false
+        }
     }
     
     @objc func menuTapped() {
         UIView.animate(withDuration: 0.2, delay: 0.0, options: [.curveLinear], animations: {
-            self.menuBottomY.constant = self.isMenuOpen ? -(self.userButton.frame.height + 20) : 0
+            self.menuBottomY.constant = self.isMenuOpen ? -(self.userButton.frame.height + self.bottomPadding) : 0
             self.view.layoutIfNeeded()
         }) { (_) in
             self.isMenuOpen = !self.isMenuOpen
@@ -74,13 +103,14 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func userButtonClick(_ sender: Any) {
-        menuTapped()
         self.navigator?.showCreateUserScreen()
+        menuTapped()
     }
     
     @IBAction func orderButtonClick(_ sender: Any) {
-        menuTapped()
         self.navigator?.createNewOrder()
+        menuTapped()
+        
     }
     
 }
@@ -93,12 +123,18 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: OrderTableViewCell.defaultNibName, for: indexPath) as? OrderTableViewCell {
-            if let object = self.viewModel?.allOrders[indexPath.row] as? OrderDTO {
+            if let object = self.viewModel?.allOrders[indexPath.row] {
                 cell.configure(object, at: indexPath)
             }
             return cell
         }
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let object = self.viewModel?.allOrders[indexPath.row] {
+            self.navigator?.showOrderDetailScreen(orderDTO: object)
+        }
     }
 }
 
@@ -113,11 +149,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             if let item = viewModel?.tabHeadings[indexPath.row] {
                 cell.configure(item, at: indexPath)
             }
-            if selectedTabIndex == indexPath.item {
-                cell.backgroundColor =  UIColor(hexString: "#FFEF8C")
-            } else {
-                cell.backgroundColor =  .clear
-            }
+            cell.highLightSelected(selectedIndex: selectedTabIndex, indexPath: indexPath.item)
             return cell
         }
         
@@ -128,6 +160,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         selectedTabIndex = indexPath.item
         self.menuCollectionView.reloadData()
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        self.viewModel?.loadOrdersAsPerTabIndex(index: indexPath.item)
     }
 }
 

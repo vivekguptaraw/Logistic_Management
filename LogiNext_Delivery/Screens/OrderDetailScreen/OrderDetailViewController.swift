@@ -28,6 +28,12 @@ class OrderDetailViewController: UIViewController {
     @IBOutlet weak var orderTitleHeight: NSLayoutConstraint!
     @IBOutlet weak var createOrderButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var statusCollectionView: UICollectionView!
+    @IBOutlet weak var statusCollectionHeight: NSLayoutConstraint!
+    @IBOutlet weak var pickUpButton: UIButton!
+    @IBOutlet weak var deliverButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    
     
     var viewModel: OrderDetailViewModel?
     
@@ -37,11 +43,13 @@ class OrderDetailViewController: UIViewController {
         self.title = ""
         self.setCallBacks()
         self.checkIfCreateOrder()
+        self.navigationController?.navigationBar.tintColor = .white
     }
     
     func checkIfCreateOrder() {
         if self.viewModel?.orderDTO == nil {
             self.setObservers()
+            self.title = "Create Order"
             self.orderTitleTextField.keyboardAppearance = .dark
             self.orderTitleTextField.returnKeyType = .next
             self.orderDescTextField.keyboardAppearance = .dark
@@ -49,10 +57,49 @@ class OrderDetailViewController: UIViewController {
             self.orderTitleTextField.becomeFirstResponder()
             self.orderTitleTextField.delegate = self
             self.orderDescTextField.delegate = self
-            orderTitleTextField.attributedPlaceholder = NSAttributedString(string: "Order Title", attributes: [NSAttributedString.Key.foregroundColor: UIColor.orange.withAlphaComponent(0.7), NSAttributedString.Key.font: UIFont(name: "DIN Alternate", size: 17)])
+            orderTitleTextField.attributedPlaceholder = NSAttributedString(string: "Order Title", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray.withAlphaComponent(0.9), NSAttributedString.Key.font: UIFont(name: "DIN Alternate", size: 17)])
+            orderTitleTextField.layer.borderColor = UIColor.white.cgColor
+            orderTitleTextField.layer.borderWidth = 1
+            orderDescTextField.layer.borderColor = UIColor.white.cgColor
+            orderDescTextField.layer.borderWidth = 1
+            statusCollectionHeight.constant = 0
+            self.isPickUp()
         } else {
-            
+            self.title = self.viewModel?.orderDTO?.name
+            self.viewModel?.setOrderStatus()
+            self.isPickUp()
+            self.createOrderButton.isHidden = true
+            orderDescHeight.constant = 0
+            orderTitleHeight.constant = 0
+            self.view.layoutIfNeeded()
+            titleLabel.text = self.viewModel?.orderDTO?.name
+            overViewLabel.text = self.viewModel?.orderDTO?.orderDescription
+            statusCollectionView.dataSource = self
+            statusCollectionView.delegate = self
+            statusCollectionView.register(StatusCollectionViewCell.defaultNib, forCellWithReuseIdentifier: StatusCollectionViewCell.defaultNibName)
+            setLayout()
+            DispatchQueue.main.async {
+                self.statusCollectionHeight.constant = self.statusCollectionView.contentSize.height
+                
+            }
         }
+    }
+    
+    func setLayout() {
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        let w = statusCollectionView.frame.width
+        statusCollectionView.backgroundColor = .clear
+        let h: CGFloat = 60
+        layout.itemSize = CGSize(width: w, height: h)
+        layout.minimumInteritemSpacing = 5
+        layout.minimumLineSpacing = 8
+        //layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        layout.scrollDirection = .vertical
+        layout.prepare()
+        statusCollectionView.collectionViewLayout = layout
+        statusCollectionView.showsHorizontalScrollIndicator = false
+        statusCollectionView.showsVerticalScrollIndicator = false
+        statusCollectionView.collectionViewLayout.invalidateLayout()
     }
     
     func setCallBacks() {
@@ -63,10 +110,39 @@ class OrderDetailViewController: UIViewController {
             print("Order Saved successfully..")
             guard let slf = self else {return}
             slf.createOrderButton.setTitle("Order added...", for: .normal)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 slf.navigationController?.popViewController(animated: true)
             }
         }
+        self.viewModel?.pickUpSuccessBlock = {
+            self.isPickUp()
+        }
+    }
+    
+    func isPickUp() {
+        if let order = self.viewModel?.orderDTO {
+            if order.isQueued {
+                self.pickUpButton.isHidden = false
+                self.deliverButton.isHidden = true
+                self.cancelButton.isHidden = false
+            }
+            if order.isInTransit {
+                self.deliverButton.isHidden = true
+                self.pickUpButton.isHidden = true
+                self.cancelButton.isHidden = false
+            }
+            if order.isCancelled {
+                self.deliverButton.isHidden = true
+                self.pickUpButton.isHidden = true
+                self.cancelButton.isHidden = true
+            }
+            self.statusCollectionView.reloadData()
+        } else {
+            self.deliverButton.isHidden = true
+            self.pickUpButton.isHidden = true
+            self.cancelButton.isHidden = true
+        }
+        
     }
     
     static func staticFunc() {
@@ -74,13 +150,25 @@ class OrderDetailViewController: UIViewController {
     }
     
     func setInitialData() {
-        
-        
     }
     
     @IBAction func createOrderClicked(_ sender: Any) {
-        self.viewModel?.createOrder(name: orderTitleTextField.text ?? "N/A", desc: orderDescTextField.text ?? "N/A", date: Date())
+        guard let txt = orderTitleTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines), !txt.isEmpty else {
+            self.orderTitleTextField.layer.borderColor = UIColor.red.cgColor
+            return}
+        self.viewModel?.createOrder(name: txt, desc: orderDescTextField.text ?? "N/A", date: Date())
     }
+    @IBAction func pickUpClicked(_ sender: Any) {
+        self.viewModel?.pickUpOrder()
+    }
+    
+    @IBAction func deliverClicked(_ sender: Any) {
+    }
+    
+    @IBAction func cancelClicked(_ sender: Any) {
+    }
+    
+    
     
     
     func setObservers() {
@@ -90,7 +178,6 @@ class OrderDetailViewController: UIViewController {
     
     @objc func keyboardWillShow(notification:NSNotification){
         if let userInfo = notification.userInfo, let keyBoardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-        
             if keyBoardFrame.cgRectValue.intersects(self.view.convert(self.orderDescTextField.frame, from: orderDescTextField)) {
             let bottomPadding = keyBoardFrame.cgRectValue.intersection(self.view.convert(self.orderDescTextField.frame, from: orderDescTextField)).origin.y - keyBoardFrame.cgRectValue.origin.y + self.orderDescTextField.frame.height + 30
                 var contentInset:UIEdgeInsets = self.scrollView.contentInset
@@ -109,10 +196,6 @@ class OrderDetailViewController: UIViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        orderTitleTextField.layer.borderColor = UIColor.white.cgColor
-        orderTitleTextField.layer.borderWidth = 1
-        orderDescTextField.layer.borderColor = UIColor.white.cgColor
-        orderDescTextField.layer.borderWidth = 1
         self.parentTopView.roundCorners(corners: [.topRight, .topLeft], radius: 20)
     }
     
@@ -121,11 +204,39 @@ class OrderDetailViewController: UIViewController {
     }
 }
 
+extension OrderDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.viewModel?.orderStatus.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StatusCollectionViewCell.defaultNibName, for: indexPath) as? StatusCollectionViewCell {
+            if let item = self.viewModel?.orderStatus[indexPath.row] {
+                cell.configure(item, at: indexPath)
+                if let order = self.viewModel?.orderDTO {
+                    let color = self.viewModel?.orderDTO?.getStatusColor()
+                    if item.0 == order.status {
+                        cell.setRadioColor(color: color, shouldShowColor: true)
+                    } else {
+                        cell.setRadioColor(color: nil, shouldShowColor: false)
+                    }
+                    
+                }
+                
+                
+            }
+            return cell
+        }
+        return UICollectionViewCell()
+    }
+}
+
 extension OrderDetailViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == orderTitleTextField {
             guard let txt = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {return false}
             orderDescTextField.becomeFirstResponder()
+            orderTitleTextField.layer.borderColor = UIColor.white.cgColor
             return true
         }
         textField.resignFirstResponder()
