@@ -67,20 +67,22 @@ struct OrderDTO {
         self.pickedUpDate = Date()
     }
     
-    func getStatusColor() -> UIColor {
-        let color = UIColor(hexString: OrderDTO.OrderStatusColor.color(status: self.status).rawValue)
-        return color
-        
-    }
-    
     mutating func cancelled(byUser: UserDTO) {
         self.cancelledByUser = byUser
         self.isCancelled = true
+        self.cancellededDate = Date()
     }
     
     mutating func delivered(byUser: UserDTO) {
         self.deliveredByUser = byUser
         self.isDelivered = true
+        self.deliveredDate = Date()
+    }
+    
+    func getStatusColor() -> UIColor {
+        let color = UIColor(hexString: OrderDTO.OrderStatusColor.color(status: self.status).rawValue)
+        return color
+        
     }
     
     var status: OrderStatus {

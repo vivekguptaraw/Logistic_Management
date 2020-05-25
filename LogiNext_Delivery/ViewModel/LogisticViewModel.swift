@@ -47,8 +47,8 @@ class LogisticViewModel {
         manager.getAllUser(sorted: Sorted(key: "name", ascending: true), completion: completion)
     }
     
-    func pickUpOrder(order: OrderDTO, completion: @escaping (OrderDTO) -> Void) {
-        manager.pickUpOrder(order: order) { (dto) in
+    func upadateOrder(order: OrderDTO, completion: @escaping (OrderDTO) -> Void) {
+        manager.updateOrder(order: order) { (dto) in
             if let dt = dto {
                 completion(dt)
             }

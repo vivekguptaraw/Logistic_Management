@@ -63,11 +63,11 @@ class OrderDetailViewController: UIViewController {
             orderDescTextField.layer.borderColor = UIColor.white.cgColor
             orderDescTextField.layer.borderWidth = 1
             statusCollectionHeight.constant = 0
-            self.isPickUp()
+            self.updateOrderStatus()
         } else {
             self.title = self.viewModel?.orderDTO?.name
             self.viewModel?.setOrderStatus()
-            self.isPickUp()
+            self.updateOrderStatus()
             self.createOrderButton.isHidden = true
             orderDescHeight.constant = 0
             orderTitleHeight.constant = 0
@@ -114,12 +114,12 @@ class OrderDetailViewController: UIViewController {
                 slf.navigationController?.popViewController(animated: true)
             }
         }
-        self.viewModel?.pickUpSuccessBlock = {
-            self.isPickUp()
+        self.viewModel?.orderUpdateSuccessBlock = {
+            self.updateOrderStatus()
         }
     }
     
-    func isPickUp() {
+    func updateOrderStatus() {
         if let order = self.viewModel?.orderDTO {
             if order.isQueued {
                 self.pickUpButton.isHidden = false
@@ -127,6 +127,11 @@ class OrderDetailViewController: UIViewController {
                 self.cancelButton.isHidden = false
             }
             if order.isInTransit {
+                self.deliverButton.isHidden = false
+                self.pickUpButton.isHidden = true
+                self.cancelButton.isHidden = false
+            }
+            if order.isDelivered {
                 self.deliverButton.isHidden = true
                 self.pickUpButton.isHidden = true
                 self.cancelButton.isHidden = false
@@ -163,13 +168,12 @@ class OrderDetailViewController: UIViewController {
     }
     
     @IBAction func deliverClicked(_ sender: Any) {
+        self.viewModel?.deliverOrder()
     }
     
     @IBAction func cancelClicked(_ sender: Any) {
+        self.viewModel?.cancelOrder()
     }
-    
-    
-    
     
     func setObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)

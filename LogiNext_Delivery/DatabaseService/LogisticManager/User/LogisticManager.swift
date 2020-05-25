@@ -15,7 +15,7 @@ protocol LogisticManagerProtocol {
     func createOrder(order: OrderDTO, completion: @escaping (OrderDTO?) -> Void)
     func getCurrentUser(userId: Int32, completion: (UserDTO?) -> Void)
     func getAllOrders(userId: Int32?, completion: ([OrderDTO]?) -> Void)
-    func pickUpOrder(order: OrderDTO, completion: @escaping (OrderDTO?) -> Void)
+    func updateOrder(order: OrderDTO, completion: @escaping (OrderDTO?) -> Void)
     func getOrdersFor(predicate: NSPredicate?, completion: ([OrderDTO]?) -> Void)
 }
 
@@ -24,7 +24,8 @@ class LogisticManager: BaseLogisticManager<Storable> {
 }
 
 extension LogisticManager: LogisticManagerProtocol {
-    func pickUpOrder(order: OrderDTO, completion: @escaping (OrderDTO?) -> Void) {
+    
+    func updateOrder(order: OrderDTO, completion: @escaping (OrderDTO?) -> Void) {
         let realmOrder = order.mapToPersistenceObject()
         do {
             try super.update(object: realmOrder) { (success) in
@@ -40,7 +41,6 @@ extension LogisticManager: LogisticManagerProtocol {
         } catch {
             completion(nil)
         }
-        
     }
     
     func getOrdersFor(predicate: NSPredicate?, completion: ([OrderDTO]?) -> Void) {

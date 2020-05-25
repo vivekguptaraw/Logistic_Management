@@ -12,7 +12,7 @@ class OrderDetailViewModel {
     
     var logisiticsMainViewModel: LogisticViewModel?
     var successBlock: (() -> Void)?
-    var pickUpSuccessBlock: (() -> Void)?
+    var orderUpdateSuccessBlock: (() -> Void)?
     var orderDTO: OrderDTO?
     var orderStatus = [StatusData]()
     var navigator: IHomeNavigator?
@@ -22,17 +22,31 @@ class OrderDetailViewModel {
         self.orderDTO = order
     }
     
+    func deliverOrder() {
+        guard var order = orderDTO, let usr = self.logisiticsMainViewModel?.currentUser else {return}
+        order.delivered(byUser: usr)
+        updateToDB(orderDTO: order)
+    }
+    
+    func cancelOrder() {
+        guard var order = orderDTO, let usr = self.logisiticsMainViewModel?.currentUser else {return}
+        order.cancelled(byUser: usr)
+        updateToDB(orderDTO: order)
+    }
     
     func pickUpOrder() {
         guard var order = orderDTO, let usr = self.logisiticsMainViewModel?.currentUser else {return}
         order.pickUp(byUser: usr)
-        self.logisiticsMainViewModel?.pickUpOrder(order: order, completion: { (dto) in
+        updateToDB(orderDTO: order)
+    }
+    
+    func updateToDB(orderDTO: OrderDTO) {
+        self.logisiticsMainViewModel?.upadateOrder(order: orderDTO, completion: { (dto) in
             self.orderDTO = dto
-            self.pickUpSuccessBlock?()
+            self.orderUpdateSuccessBlock?()
             self.navigator?.orderUpdated?()
         })
     }
-    
     
     func createOrder(name: String, desc: String, date: Date) {
         self.logisiticsMainViewModel?.createOrder(name: name, desc: desc, date: date, completion: { (orderDTO) in
