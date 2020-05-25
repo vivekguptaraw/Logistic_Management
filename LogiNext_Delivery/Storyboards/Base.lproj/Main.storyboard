@@ -145,7 +145,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4pS-8B-1Po">
-                                <rect key="frame" x="40" y="64" width="334" height="40"/>
+                                <rect key="frame" x="39" y="64" width="336" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="2QE-vv-0qL"/>
                                 </constraints>
@@ -164,7 +164,7 @@
                             <constraint firstItem="6n3-zr-upM" firstAttribute="bottom" secondItem="FHb-qm-bQM" secondAttribute="bottom" constant="40" id="Bh1-aN-YqH"/>
                             <constraint firstItem="6n3-zr-upM" firstAttribute="trailing" secondItem="FHb-qm-bQM" secondAttribute="trailing" constant="40" id="QfB-oL-AJo"/>
                             <constraint firstItem="4pS-8B-1Po" firstAttribute="top" secondItem="6n3-zr-upM" secondAttribute="top" constant="20" id="Rte-dx-86I"/>
-                            <constraint firstItem="4pS-8B-1Po" firstAttribute="width" secondItem="FHb-qm-bQM" secondAttribute="width" id="Wxs-g4-Klb"/>
+                            <constraint firstItem="4pS-8B-1Po" firstAttribute="width" secondItem="FHb-qm-bQM" secondAttribute="width" constant="2" id="Wxs-g4-Klb"/>
                             <constraint firstItem="4pS-8B-1Po" firstAttribute="centerX" secondItem="s7k-PQ-nJa" secondAttribute="centerX" id="bvT-1x-Lgn"/>
                             <constraint firstItem="FHb-qm-bQM" firstAttribute="leading" secondItem="6n3-zr-upM" secondAttribute="leading" constant="40" id="v2i-UW-ka0"/>
                         </constraints>

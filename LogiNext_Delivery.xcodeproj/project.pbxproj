@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3169ACD7000427E8A988027E /* Pods_LogiNext_Delivery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA265A0CF088E7118E2598F /* Pods_LogiNext_Delivery.framework */; };
+		801804FD247B974E00159BC0 /* Date+Addditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801804FC247B974E00159BC0 /* Date+Addditions.swift */; };
 		8059C3BE2479624A00322C50 /* NibLoadbale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059C3BD2479624A00322C50 /* NibLoadbale.swift */; };
 		8059C3C02479628900322C50 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059C3BF2479628900322C50 /* Configurable.swift */; };
 		8059C3C3247962AC00322C50 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059C3C1247962AC00322C50 /* UserTableViewCell.swift */; };
@@ -68,6 +69,7 @@
 		2304420E0CFDE86B8C73C4CE /* Pods-LogiNext_DeliveryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogiNext_DeliveryTests.release.xcconfig"; path = "Target Support Files/Pods-LogiNext_DeliveryTests/Pods-LogiNext_DeliveryTests.release.xcconfig"; sourceTree = "<group>"; };
 		24ECB4930136EEB43C0719C4 /* Pods_LogiNext_DeliveryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LogiNext_DeliveryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55F8707AD44B1AEF321EEE3A /* Pods-LogiNext_Delivery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogiNext_Delivery.release.xcconfig"; path = "Target Support Files/Pods-LogiNext_Delivery/Pods-LogiNext_Delivery.release.xcconfig"; sourceTree = "<group>"; };
+		801804FC247B974E00159BC0 /* Date+Addditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Addditions.swift"; sourceTree = "<group>"; };
 		8059C3BD2479624A00322C50 /* NibLoadbale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadbale.swift; sourceTree = "<group>"; };
 		8059C3BF2479628900322C50 /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		8059C3C1247962AC00322C50 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
@@ -147,6 +149,13 @@
 				24ECB4930136EEB43C0719C4 /* Pods_LogiNext_DeliveryTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		801804FE247BDF6900159BC0 /* LocationTraker */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LocationTraker;
 			sourceTree = "<group>";
 		};
 		8059C3B8247961E100322C50 /* UserScreen */ = {
@@ -301,6 +310,7 @@
 				80C0D47C24795CBC004253BB /* UIViewController+Additions.swift */,
 				8059C3D1247978CD00322C50 /* UIView+Additions.swift */,
 				806B145E247A866C00F51043 /* UIColor+Additions.swift */,
+				801804FC247B974E00159BC0 /* Date+Addditions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -375,6 +385,7 @@
 		80C0D470247959B2004253BB /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				801804FE247BDF6900159BC0 /* LocationTraker */,
 				80EB3F35247A45DB0097D09A /* OrderList */,
 				8059C3C8247976A500322C50 /* OrderDetailScreen */,
 				8059C3B8247961E100322C50 /* UserScreen */,
@@ -621,6 +632,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				801804FD247B974E00159BC0 /* Date+Addditions.swift in Sources */,
 				80C0D461247939CC004253BB /* OrderDTO.swift in Sources */,
 				8059C3C6247962EC00322C50 /* UserListViewModel.swift in Sources */,
 				80EB3F43247A62EA0097D09A /* OrderTabCollectionViewCell.swift in Sources */,

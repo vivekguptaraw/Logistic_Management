@@ -66,14 +66,14 @@ class LogisticViewModel {
         }
     }
     
-    func getAllOrders(completion: @escaping ([OrderDTO]?) -> Void) {
-        manager.getAllOrders(userId: nil) { (orderDTOs) in
+    func getAllOrders(sorted: Sorted?, completion: @escaping ([OrderDTO]?) -> Void) {
+        manager.getAllOrders(sorted: sorted) { (orderDTOs) in
             completion(orderDTOs)
         }
     }
     
-    func getOrdersFor(predicate: NSPredicate?, completion: ([OrderDTO]?) -> Void) {
-        manager.getOrdersFor(predicate: predicate, completion: completion)
+    func getOrdersFor(predicate: NSPredicate?, sorted: Sorted?, completion: ([OrderDTO]?) -> Void) {
+        manager.getOrdersFor(predicate: predicate, sorted: sorted, completion: completion)
     }
     
     

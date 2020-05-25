@@ -20,13 +20,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="192" height="88"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fy2-v1-mtb">
-                                <rect key="frame" x="5" y="5" width="51.5" height="83"/>
-                                <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="19"/>
+                                <rect key="frame" x="15" y="5" width="70.5" height="83"/>
+                                <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fMy-SG-KMt" customClass="VGRadio" customModule="LogiNext_Delivery" customModuleProvider="target">
-                                <rect key="frame" x="123" y="29.5" width="34" height="34"/>
+                                <rect key="frame" x="113" y="29.5" width="34" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="IhZ-ah-Wn2"/>
                                     <constraint firstAttribute="width" constant="34" id="hjI-s6-NKv"/>
@@ -34,8 +34,8 @@
                             </view>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="fy2-v1-mtb" firstAttribute="leading" secondItem="ygo-Pz-tY0" secondAttribute="leading" constant="5" id="8cN-Od-78f"/>
-                            <constraint firstAttribute="trailing" secondItem="fMy-SG-KMt" secondAttribute="trailing" constant="35" id="G47-sq-q0O"/>
+                            <constraint firstItem="fy2-v1-mtb" firstAttribute="leading" secondItem="ygo-Pz-tY0" secondAttribute="leading" constant="15" id="8cN-Od-78f"/>
+                            <constraint firstAttribute="trailing" secondItem="fMy-SG-KMt" secondAttribute="trailing" constant="45" id="G47-sq-q0O"/>
                             <constraint firstAttribute="bottom" secondItem="fy2-v1-mtb" secondAttribute="bottom" id="G61-4R-twI"/>
                             <constraint firstItem="fy2-v1-mtb" firstAttribute="top" secondItem="ygo-Pz-tY0" secondAttribute="top" constant="5" id="fUD-EJ-bPW"/>
                             <constraint firstItem="fMy-SG-KMt" firstAttribute="centerY" secondItem="fy2-v1-mtb" secondAttribute="centerY" id="uUg-31-YgK"/>

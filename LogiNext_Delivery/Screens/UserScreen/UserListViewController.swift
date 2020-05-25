@@ -11,7 +11,6 @@ import UIKit
 class UserListViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var tableView: UITableView!
-    var tap: UITapGestureRecognizer?
     var viewModel: UserListViewModel?
     
     override func viewDidLoad() {
@@ -36,8 +35,6 @@ class UserListViewController: UIViewController {
         textField.returnKeyType = .done
         textField.delegate = self
         textField.becomeFirstResponder()
-//        tap = UITapGestureRecognizer(target: self, action: #selector(didTap))
-//        self.view.addGestureRecognizer(tap!)
         self.view.addTapGesture(onClick: didTap)
     }
     
@@ -47,6 +44,12 @@ class UserListViewController: UIViewController {
         } else {
             self.dismiss(animated: true, completion: nil)
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.textField.borderStyle = .line
+        self.textField.backgroundColor = .white
     }
 }
 
@@ -80,7 +83,6 @@ extension UserListViewController: UserSelected {
     }
 }
 
-
 extension UserListViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let txt = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines), !txt.isEmpty else {return false}
@@ -88,9 +90,5 @@ extension UserListViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         viewModel?.addNewUser(name: txt, date: Date())
         return true
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        print(textField.text)
     }
 }

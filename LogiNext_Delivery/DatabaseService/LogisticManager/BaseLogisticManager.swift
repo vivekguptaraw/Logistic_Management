@@ -11,15 +11,12 @@ import RealmSwift
 
 class BaseLogisticManager<T> {
     
-    //MARK: - Stored Properties
     var dbManager : DataManagerProtocol
     
-    //MARK: - Init
     required init(dbManager : DataManagerProtocol) {
         self.dbManager = dbManager
     }
     
-    //MARK: - Methods
     func fetch<T>(_ model: T.Type, predicate: NSPredicate?, sorted: Sorted?, completion: (([T]) -> ())) where T : Storable {
         dbManager.fetch(model, predicate: predicate, sorted: sorted, completion: completion)
     }

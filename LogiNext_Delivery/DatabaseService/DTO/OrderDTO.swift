@@ -17,7 +17,7 @@ struct OrderDTO {
     var expectedDeliveryDate: Date?
     var deliveredDate: Date?
     var cancellededDate: Date?
-    
+    var lastUpdatedDate: Date?
     var isQueued: Bool = false
     var isInTransit: Bool = false
     var isDelivered: Bool = false
@@ -58,6 +58,7 @@ struct OrderDTO {
     mutating func created(byUser: UserDTO, date: Date) {
         self.createdByUser = byUser
         self.createdDate = date
+        self.lastUpdatedDate = date
         self.isQueued = true
     }
     
@@ -65,18 +66,21 @@ struct OrderDTO {
         self.pickedUpByUser = byUser
         self.isInTransit = true
         self.pickedUpDate = Date()
+        self.lastUpdatedDate = self.pickedUpDate
     }
     
     mutating func cancelled(byUser: UserDTO) {
         self.cancelledByUser = byUser
         self.isCancelled = true
         self.cancellededDate = Date()
+        self.lastUpdatedDate = self.cancellededDate
     }
     
     mutating func delivered(byUser: UserDTO) {
         self.deliveredByUser = byUser
         self.isDelivered = true
         self.deliveredDate = Date()
+        self.lastUpdatedDate = self.deliveredDate
     }
     
     func getStatusColor() -> UIColor {
@@ -140,6 +144,7 @@ extension OrderDTO: MappableProtocol {
         model.expectedDeliveryDate = self.expectedDeliveryDate
         model.deliveredDate = self.deliveredDate
         model.cancellededDate = self.cancellededDate
+        model.lastUpdatedDate = self.lastUpdatedDate
         model.isQueued = self.isQueued
         model.isInTransit = self.isInTransit
         model.isDelivered = self.isDelivered
@@ -158,6 +163,7 @@ extension OrderDTO: MappableProtocol {
         orderDto.expectedDeliveryDate = object.expectedDeliveryDate
         orderDto.deliveredDate = object.deliveredDate
         orderDto.cancellededDate = object.cancellededDate
+        orderDto.lastUpdatedDate = object.lastUpdatedDate
         orderDto.isQueued = object.isQueued
         orderDto.isInTransit = object.isInTransit
         orderDto.isDelivered = object.isDelivered

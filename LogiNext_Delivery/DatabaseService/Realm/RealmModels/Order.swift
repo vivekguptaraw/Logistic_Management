@@ -19,6 +19,7 @@ class Order: Object {
     @objc dynamic var expectedDeliveryDate: Date?
     @objc dynamic var deliveredDate: Date?
     @objc dynamic var cancellededDate: Date?
+    @objc dynamic var lastUpdatedDate: Date?
     
     @objc dynamic var isQueued: Bool = false
     @objc dynamic var isInTransit: Bool = false

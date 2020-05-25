@@ -13,50 +13,90 @@ enum  StoryBoard: String {
 }
 
 enum OrderTabs: String {
-    case All, MyOrders, Today, Queued, InTransit, Delivered, Cancelled
+    case All, MyAllOrders, MyToday, MyQueued, MyInTransit, MyDelivered, MyCancelled,
+    AllToday, AllQueued, AllInTransit, AllDelivered, AllCancelled
+    
+    var isForCurrentUser: Bool {
+        switch self {
+        case .MyAllOrders, .MyToday, .MyQueued, .MyInTransit, .MyDelivered, .MyCancelled:
+            return true
+        case .All, .AllToday, .AllQueued, .AllInTransit, .AllDelivered, .AllCancelled :
+            return false
+        }
+    }
     
     static func valueAtIndex(index: Int) -> OrderTabs {
         switch index {
         case 0:
             return .All
         case 1:
-            return .MyOrders
+            return .MyAllOrders
         case 2:
-            return .Today
+            return .MyToday
         case 3:
-            return .Queued
+            return .MyQueued
         case 4:
-            return .InTransit
+            return .MyInTransit
         case 5:
-            return .Delivered
+            return .MyDelivered
         case 6:
-            return .Cancelled
+            return .MyCancelled
+        case 7:
+            return .AllToday
+        case 8:
+            return .AllQueued
+        case 9:
+            return .AllInTransit
+        case 10:
+            return .AllDelivered
+        case 11:
+            return .AllCancelled
         default:
             return .All
         }
     }
     
-    func getTitle(count: Int) -> String {
+    func getTitle(count: Int?) -> String {
+        var str = ""
+        if let cnt = count {
+            str = " (\(cnt))"
+        }
         switch self {
         case .All:
-            return "All Orders (\(count))"
-        case .MyOrders:
-            return "My Orders (\(count))"
-        case .Today:
-            return "Today (\(count))"
-        case .Queued:
-            return "All Queued (\(count))"
-        case .InTransit:
-            return "In Transit (\(count))"
-        case .Delivered:
-            return "Delivered (\(count))"
-        case .Cancelled:
-            return "Cancelled (\(count))"
+            return "All Orders\(str)"
+        case .MyAllOrders:
+            return "My All Orders\(str)"
+        case .MyToday:
+            return "My Today's Orders\(str)"
+        case .MyQueued:
+            return "My Queued\(str)"
+        case .MyInTransit:
+            return "My Transit\(str)"
+        case .MyDelivered:
+            return "My Delivered\(str)"
+        case .MyCancelled:
+            return "My Cancelled\(str)"
+        case .AllToday:
+            return "All Today's Orders\(str)"
+        case .AllQueued:
+            return "All Queued\(str)"
+        case .AllInTransit:
+            return "All In-Transit\(str)"
+        case .AllDelivered:
+            return "All Delivered\(str)"
+        case .AllCancelled:
+            return "All Cancelled\(str)"
         }
     }
 }
 
 extension OrderTabs:  CaseIterable {}
+
+extension CaseIterable where Self: Equatable {
+    var index: Self.AllCases.Index? {
+        return Self.allCases.firstIndex { self == $0 }
+    }
+}
 
 struct Helper {
     
@@ -72,7 +112,7 @@ struct Helper {
     static func getString(from date: Date?) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone.current
-        dateFormatter.dateFormat = "dd-MM-yyyy"
+        dateFormatter.dateFormat = "E, dd-MM-yyyy HH:mm a"
         if let dt = date, let str = dateFormatter.string(from: dt) as? String {
             return str
         }

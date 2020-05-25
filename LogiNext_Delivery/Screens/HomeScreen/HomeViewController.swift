@@ -20,7 +20,6 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var menuCollectionView: UICollectionView!
     @IBOutlet weak var ordersTableView: UITableView!
-    var selectedTabIndex: Int = 0
     var menuTap: UITapGestureRecognizer?
     var isMenuOpen: Bool = false
     @IBOutlet weak var userNameLabel: UILabel!
@@ -60,7 +59,7 @@ class HomeViewController: UIViewController {
     func getAllOrders() {
         self.viewModel?.getAllOrdersList()
         self.menuCollectionView.reloadData()
-        self.selectedTabIndex = 0
+        self.viewModel?.selectedTabIndex = 0
     }
     
     func setViewModel() {
@@ -69,15 +68,16 @@ class HomeViewController: UIViewController {
             self.setUserName()
             self.viewModel?.reloadBlock = {
                 self.ordersTableView.reloadData()
+                self.menuCollectionView.reloadData()
             }
         }
         navigator?.userUpdated = {
             self.setMenuButtons()
             self.setUserName()
-            self.viewModel?.loadOrdersAsPerTabIndex(index: self.selectedTabIndex)
+            self.viewModel?.loadOrdersAsPerTabIndex(index: self.viewModel?.selectedTabIndex ?? 0)
         }
         navigator?.orderUpdated = {
-            self.viewModel?.getAllOrdersList()
+            self.viewModel?.loadOrdersAsPerTabIndex(index: self.viewModel?.selectedTabIndex ?? 0)
         }
     }
     
@@ -149,7 +149,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             if let item = viewModel?.tabHeadings[indexPath.row] {
                 cell.configure(item, at: indexPath)
             }
-            cell.highLightSelected(selectedIndex: selectedTabIndex, indexPath: indexPath.item)
+            cell.highLightSelected(selectedIndex: self.viewModel?.selectedTabIndex ?? 0, indexPath: indexPath.item)
             return cell
         }
         
@@ -157,7 +157,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedTabIndex = indexPath.item
+        self.viewModel?.selectedTabIndex = indexPath.item
         self.menuCollectionView.reloadData()
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         self.viewModel?.loadOrdersAsPerTabIndex(index: indexPath.item)
