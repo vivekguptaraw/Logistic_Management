@@ -9,7 +9,7 @@
 import UIKit
 
 enum  StoryBoard: String {
-    case Main, Order
+    case Main, Order, LocationMap
 }
 
 enum OrderTabs: String {

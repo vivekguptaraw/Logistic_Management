@@ -18,8 +18,16 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationCategoryType</key>
+	<string>Please let me use location :)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Please let me use location :)</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Please let me use location :)</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Please let me use location :)</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

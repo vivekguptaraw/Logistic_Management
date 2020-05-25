@@ -10,8 +10,17 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+    
+    var window: UIWindow?
+    
+    class var shared: AppDelegate {
+        var del: AppDelegate!
+        if let delegate = UIApplication.shared.delegate as? AppDelegate {
+            del = delegate
+            return del
+        }
+        return del
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

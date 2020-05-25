@@ -23,6 +23,8 @@ class HomeViewController: UIViewController {
     var menuTap: UITapGestureRecognizer?
     var isMenuOpen: Bool = false
     @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var trackButton: UIButton!
+    
     let bottomPadding: CGFloat = 10
     var viewModel: HomeViewModel?
     
@@ -49,6 +51,7 @@ class HomeViewController: UIViewController {
         plusImageView.addGestureRecognizer(menuTap!)
         ordersTableView.tableFooterView = UIView()
         ordersTableView.separatorStyle = .none
+        self.title = "Logistic Manager"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -112,6 +115,12 @@ class HomeViewController: UIViewController {
         menuTapped()
         
     }
+    
+    @IBAction func trackClicked(_ sender: Any) {
+        self.navigator?.showLocationTracker()
+    }
+    
+    
     
 }
 

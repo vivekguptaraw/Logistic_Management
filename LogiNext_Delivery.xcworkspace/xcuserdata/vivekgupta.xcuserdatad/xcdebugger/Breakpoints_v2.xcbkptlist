@@ -7,112 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3802000A-F570-4F5F-82CA-8212108A9CB7"
+            uuid = "A9603DE4-6331-4C2B-BB42-E097F43CBF77"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LogiNext_Delivery/Screens/HomeScreen/ViewModel/HomeViewModel.swift"
+            filePath = "LogiNext_Delivery/Screens/LocationTraker/LocationViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "loadOrdersAsPerTabIndex(index:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5F99EB87-8FA9-4017-BB3E-4EEE16625B54"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LogiNext_Delivery/Screens/HomeScreen/ViewModel/HomeViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
-            landmarkName = "loadOrdersAsPerTabIndex(index:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0C892D4E-865E-4B57-9A88-66B8473540B5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LogiNext_Delivery/Screens/HomeScreen/ViewModel/HomeViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "loadOrdersAsPerTabIndex(index:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2043DA6C-3D66-43EF-B7F4-E65D974E421C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LogiNext_Delivery/Screens/HomeScreen/ViewModel/HomeViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "loadOrdersAsPerTabIndex(index:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "2043DA6C-3D66-43EF-B7F4-E65D974E421C - 4a8e398075b32d98"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LogiNext_Delivery.HomeViewModel.loadOrdersAsPerTabIndex(index: Swift.Int) -&gt; ()"
-                  moduleName = "LogiNext_Delivery"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vivekgupta/Desktop/MyOwnDemoApps/Loginext/LogiNext_Delivery/LogiNext_Delivery/Screens/HomeScreen/ViewModel/HomeViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "84"
-                  endingLineNumber = "84"
-                  offsetFromSymbolStart = "5381">
-               </Location>
-               <Location
-                  uuid = "2043DA6C-3D66-43EF-B7F4-E65D974E421C - 73eec4b39f69bd74"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;LogiNext_Delivery.OrderDTO&gt;&gt;) -&gt; () in LogiNext_Delivery.HomeViewModel.loadOrdersAsPerTabIndex(index: Swift.Int) -&gt; ()"
-                  moduleName = "LogiNext_Delivery"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vivekgupta/Desktop/MyOwnDemoApps/Loginext/LogiNext_Delivery/LogiNext_Delivery/Screens/HomeScreen/ViewModel/HomeViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "85"
-                  endingLineNumber = "85"
-                  offsetFromSymbolStart = "87">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3A2BA1BD-452D-4834-A3EC-45D89F0904CF"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LogiNext_Delivery/Screens/HomeScreen/ViewModel/HomeViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "loadOrdersAsPerTabIndex(index:)"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "deinit"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

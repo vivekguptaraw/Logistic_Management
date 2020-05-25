@@ -13,6 +13,7 @@ protocol IHomeNavigator {
     var logisticViewModel: LogisticViewModel {get}
     func showCreateUserScreen()
     func createNewOrder()
+    func showLocationTracker()
     func showOrderDetailScreen(orderDTO: OrderDTO)
     var userUpdated: (() -> Void)? { get set }
     var orderUpdated: (() -> Void)? { get set }
@@ -28,6 +29,7 @@ class HomeNavigator: IHomeNavigator {
     
     required init(nav: UINavigationController?) {
         self.navigation = nav
+        self.navigation?.navigationBar.barTintColor = UIColor.init(hexString: "#3B87FF").withAlphaComponent(0.3)
         logisticViewModel = LogisticViewModel()
     }
     
@@ -54,6 +56,13 @@ class HomeNavigator: IHomeNavigator {
             vc.viewModel = OrderDetailViewModel(logistics: logisticViewModel, order: orderDTO)
             vc.viewModel?.navigator = self
             navigation?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    func showLocationTracker() {
+        if let vc = Helper.getViewControllerFromStoryboard(toStoryBoard: .LocationMap, initialViewControllerIdentifier: LocationViewController.storyBoardID) as? LocationViewController {
+            vc.modalPresentationStyle = .overFullScreen
+            navigation?.present(vc, animated: true, completion: nil)
         }
     }
 }
