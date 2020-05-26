@@ -14,7 +14,7 @@ class LocationManager: NSObject {
     var startLocation: CLLocation?
     var currentLocation: CLLocation?
     var timer: Timer?
-    let trackingInterval: TimeInterval = 2
+    let trackingInterval: TimeInterval = 30
     var isStartLocationSet = false
     var newLocationClosure: (() -> Void)?
     var goToSettingsClosure: (() -> Void)?
