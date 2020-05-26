@@ -49,25 +49,13 @@ extension UIView: TapGestureNeeded {
         self.layer.cornerRadius = radius
     }
     
+    func addBorder(color: UIColor, width: CGFloat) {
+        self.layer.borderColor = color.cgColor
+        self.layer.borderWidth = width
+    }
+    
     enum ViewSide {
         case Left, Right, Top, Bottom
     }
-    
-    func addBorder(toSide side: ViewSide, withColor color: CGColor, andThickness thickness: CGFloat, extraPadding: CGFloat = 0) {
-        
-        let border = CALayer()
-        border.backgroundColor = color
-        
-        switch side {
-        case .Left: border.frame = CGRect(x: frame.minX, y: frame.minY, width: thickness, height: frame.height)
-        case .Right: border.frame = CGRect(x: frame.maxX, y: frame.minY, width: thickness, height: frame.height)
-        case .Top: border.frame = CGRect(x: bounds.minX, y: bounds.minY + extraPadding, width: bounds.width, height: thickness)
-        case .Bottom: border.frame = CGRect(x: bounds.minX, y: bounds.maxY - thickness, width: bounds.width, height: thickness)
-        }
-        if layer.position.x != CGFloat.nan && layer.position.x != CGFloat.signalingNaN && layer.position.y != CGFloat.nan && layer.position.y != CGFloat.signalingNaN {
-            if border.position.x != CGFloat.nan && border.position.x != CGFloat.signalingNaN && border.position.y != CGFloat.nan && border.position.y != CGFloat.signalingNaN {
-                layer.addSublayer(border)
-            }
-        }
-    }
+
 }

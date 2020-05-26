@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Location View Controller-->
+        <!--Location Map Kit View Controller-->
         <scene sceneID="2Qs-0X-uQe">
             <objects>
-                <viewController storyboardIdentifier="LocationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BbO-e2-rfx" customClass="LocationViewController" customModule="LogiNext_Delivery" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LocationMapKitViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BbO-e2-rfx" customClass="LocationMapKitViewController" customModule="LogiNext_Delivery" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Pvr-aa-pqG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -45,6 +45,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JZR-Yk-Bt4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="142.02898550724638" y="95.758928571428569"/>
+        </scene>
+        <!--Location Google Map View Controller-->
+        <scene sceneID="nCN-aN-SjM">
+            <objects>
+                <viewController storyboardIdentifier="LocationGoogleMapViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uVf-dy-NWf" customClass="LocationGoogleMapViewController" customModule="LogiNext_Delivery" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="A2c-uN-sND">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xdw-yi-9jX" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Close" translatesAutoresizingMaskIntoConstraints="NO" id="O9W-4n-m2Y">
+                                <rect key="frame" x="330" y="778" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="8yP-RB-p2l"/>
+                                    <constraint firstAttribute="width" constant="44" id="MfT-jC-FWf"/>
+                                    <constraint firstAttribute="height" constant="44" id="iHO-oc-icX"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="tkc-eX-8Mb"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Xdw-yi-9jX" secondAttribute="bottom" id="26A-jU-IXa"/>
+                            <constraint firstAttribute="trailing" secondItem="Xdw-yi-9jX" secondAttribute="trailing" id="6Aa-ZH-uMA"/>
+                            <constraint firstItem="Xdw-yi-9jX" firstAttribute="top" secondItem="A2c-uN-sND" secondAttribute="top" id="EkY-VW-nx2"/>
+                            <constraint firstItem="I29-mo-Dwo" firstAttribute="trailing" secondItem="Xdw-yi-9jX" secondAttribute="trailing" id="Yb6-3H-Kx5"/>
+                            <constraint firstItem="I29-mo-Dwo" firstAttribute="bottom" secondItem="O9W-4n-m2Y" secondAttribute="bottom" constant="40" id="b0I-X0-4zk"/>
+                            <constraint firstItem="Xdw-yi-9jX" firstAttribute="leading" secondItem="A2c-uN-sND" secondAttribute="leading" id="h07-gw-Z9a"/>
+                            <constraint firstItem="I29-mo-Dwo" firstAttribute="trailing" secondItem="O9W-4n-m2Y" secondAttribute="trailing" constant="40" id="lDz-kn-9wG"/>
+                            <constraint firstItem="Xdw-yi-9jX" firstAttribute="leading" secondItem="I29-mo-Dwo" secondAttribute="leading" id="vnR-Sr-hH8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="I29-mo-Dwo"/>
+                    </view>
+                    <connections>
+                        <outlet property="closeIcon" destination="O9W-4n-m2Y" id="Jg4-hY-FpC"/>
+                        <outlet property="mapView" destination="Xdw-yi-9jX" id="YnO-iR-MW8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UOv-RZ-zvQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1086" y="241"/>
         </scene>
     </scenes>
     <resources>

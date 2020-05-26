@@ -10,13 +10,15 @@ import CoreLocation
 import UIKit
 
 class LocationManager: NSObject {
-    private let locationManager = CLLocationManager()
+    private var locationManager: CLLocationManager?
     var startLocation: CLLocation?
     var currentLocation: CLLocation?
     var timer: Timer?
     let trackingInterval: TimeInterval = 2
     var isStartLocationSet = false
-    var startLocationClosure: (() -> Void)?
+    var newLocationClosure: (() -> Void)?
+    var goToSettingsClosure: (() -> Void)?
+    var viewModel: LocationTrackerViewModel?
     
     private static var instance: LocationManager = {
         let inst = LocationManager()
@@ -33,10 +35,13 @@ class LocationManager: NSObject {
     }
     
     func initializeLocation() {
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
-        locationManager.requestLocation()
+        if self.locationManager == nil {
+            locationManager = CLLocationManager()
+        }
+        locationManager?.delegate = self
+        locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager?.requestAlwaysAuthorization()
+        locationManager?.requestLocation()
     }
     
     @objc func startMonitoringLocation() {
@@ -45,34 +50,44 @@ class LocationManager: NSObject {
         }
         self.timer = nil
         print("Location---> startedUpdatingLocation")
-        self.locationManager.startUpdatingLocation()
+        self.locationManager?.startUpdatingLocation()
         self.timer = Timer.scheduledTimer(timeInterval: trackingInterval, target: self, selector: #selector(stopMonitoringLocation), userInfo: nil, repeats: false)
     }
     
     @objc func stopMonitoringLocation () {
-        self.locationManager.stopUpdatingLocation()
+        self.locationManager?.stopUpdatingLocation()
         if let tmr = self.timer {
             tmr.invalidate()
         }
         print("Location---> stoppedUpdatingLocation")
-        self.timer = Timer.scheduledTimer(timeInterval: trackingInterval, target: self, selector: #selector(startMonitoringLocation), userInfo: nil, repeats: false)
-        
+        if self.locationManager != nil {
+            self.timer = Timer.scheduledTimer(timeInterval: trackingInterval, target: self, selector: #selector(startMonitoringLocation), userInfo: nil, repeats: false)
+        }
+    }
+    
+    func checkLocationManager() {
+        if self.locationManager == nil {
+            self.initializeLocation()
+        }
     }
     
     func forceStopMonitoringLocation() {
-        self.locationManager.stopUpdatingLocation()
+        self.locationManager?.stopUpdatingLocation()
+        self.isStartLocationSet = false
+        self.locationManager = nil
+        self.currentLocation = nil
+        self.startLocation = nil
     }
 }
-
 
 extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         case .denied, .restricted:
             self.currentLocation = nil
-            self.showGoToSettingsAlert()
+            self.goToSettingsClosure?()
         case .authorizedAlways, .authorizedWhenInUse, .notDetermined:
-            locationManager.requestLocation()
+            locationManager?.requestLocation()
             self.startMonitoringLocation()
         @unknown default:
             print("Unknown status")
@@ -100,11 +115,27 @@ extension LocationManager: CLLocationManagerDelegate {
                 self.currentLocation = location
                 if !isStartLocationSet {
                     self.startLocation = location
-                    isStartLocationSet = true
+                    
+                    // MARK: - Set old start location from DB
+                    self.viewModel?.getActualStartLocationFromDB(completion: { (oldStartLoc) in
+                        if let old = oldStartLoc, let stlt = old.startLatitude, let stlg = old.startLongitude {
+                            self.startLocation = CLLocation(latitude: stlt, longitude: stlg)
+                        } else {
+                            self.createStartLocationEntryIntoDB(coordinate: location.coordinate)
+                        }
+                    })
+                    
+                    self.isStartLocationSet = true
+                    
                 }
-                self.startLocationClosure?()
+                self.newLocationClosure?()
             }
         }
+    }
+    
+    func createStartLocationEntryIntoDB(coordinate: CLLocationCoordinate2D) {
+        guard let user = viewModel?.logisiticsViewModel.currentUser else {return}
+        viewModel?.createUserLocationEntryIntoDB(userId: user.userId, name: user.firstName, latitude: coordinate.latitude, longitude: coordinate.longitude)
     }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
@@ -117,24 +148,5 @@ extension LocationManager: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error.localizedDescription)
-    }
-    
-    func showGoToSettingsAlert() {
-        let alertView =  UIAlertController(title: "Could not find your location.", message: "Please go to iOS Settings > Privacy > Location to allow access to your location.", preferredStyle: UIAlertController.Style.alert)
-        
-        let action = UIAlertAction(title: "Settings" , style: UIAlertAction.Style.default, handler: { (_) in
-            guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
-                return
-            }
-            if UIApplication.shared.canOpenURL(settingsUrl) {
-                UIApplication.shared.open(settingsUrl, options: [:], completionHandler: { (success) in
-                })
-            }
-        })
-        alertView.addAction(action)
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: { (_) in
-        })
-        alertView.addAction(cancelAction)
-        AppDelegate.shared.window?.rootViewController?.present(alertView, animated: true, completion: nil)
     }
 }

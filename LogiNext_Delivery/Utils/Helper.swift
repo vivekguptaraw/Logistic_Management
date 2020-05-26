@@ -100,6 +100,8 @@ extension CaseIterable where Self: Equatable {
 
 struct Helper {
     
+    static var googleApiKey = "AIzaSyB-JbXyToc_VXHAX7RsHKexoWtINQn9DuA"//"AIzaSyA8j3t2kk_E26EDE8ANX3sPSyDyRDZInvQ"
+    
     static func getDate(from dateString: String) -> Date? {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZ"

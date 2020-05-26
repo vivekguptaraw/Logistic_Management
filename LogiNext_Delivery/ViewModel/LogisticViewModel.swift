@@ -12,11 +12,8 @@ import RealmSwift
 class LogisticViewModel {
     let databaseManager: DataManagerProtocol
     let manager: LogisticManagerProtocol
-    var currentUser: UserDTO? {
-        didSet {
-            setCurrentUser()
-        }
-    }
+    let userIdKey = "userId"
+    var currentUser: UserDTO?
     
     init(db: DataManagerProtocol = RealmDataManager(realm: RealmProvider.default)) {
         self.databaseManager = db
@@ -26,20 +23,20 @@ class LogisticViewModel {
     
     func getCurrentUser() {
         let userDef = UserDefaults.standard
-        if let userId = userDef.object(forKey: "userId") as? Int32 {
+        if let userId = userDef.object(forKey: userIdKey) as? Int32 {
             manager.getCurrentUser(userId: userId) { (userDTO) in
                 self.currentUser = userDTO
             }
         }
     }
     
-    func setCurrentUser() {
+    func setCurrentUser(userDTO: UserDTO) {
+        self.currentUser = userDTO
         let userDef = UserDefaults.standard
-        userDef.set(currentUser?.userId, forKey: "userId")
+        userDef.set(currentUser?.userId, forKey: userIdKey)
     }
     
-    func saveUser(name: String, date: Date, completion: (Bool) -> Void) {
-        let userDTO = UserDTO(name: name, id: Int(date.timeIntervalSince1970))
+    func saveUser(userDTO: UserDTO, completion: (UserDTO?) -> Void) {
         manager.saveUser(user: userDTO, completion: completion)
     }
     
@@ -60,8 +57,8 @@ class LogisticViewModel {
         if let user = self.currentUser {
             orderDTO.created(byUser: user, date: Date())
         }
-        manager.createOrder(order: orderDTO) {[weak self] (orderDTO) in
-            guard let slf = self, let orderdto = orderDTO else {return}
+        manager.createOrder(order: orderDTO) {(orderDTO) in
+            guard let orderdto = orderDTO else {return}
             completion(orderdto)
         }
     }
@@ -76,5 +73,10 @@ class LogisticViewModel {
         manager.getOrdersFor(predicate: predicate, sorted: sorted, completion: completion)
     }
     
-    
+    func createUserLocation(userLocDTO: UserLocationDTO, completion: @escaping (UserLocationDTO?) -> Void) {
+        manager.createUserLocationEntry(userLocDTO: userLocDTO) { (locDTO) in
+            print(locDTO)
+            completion(locDTO)
+        }
+    }
 }

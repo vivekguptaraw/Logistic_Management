@@ -10,7 +10,7 @@
 		3169ACD7000427E8A988027E /* Pods_LogiNext_Delivery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA265A0CF088E7118E2598F /* Pods_LogiNext_Delivery.framework */; };
 		801804FD247B974E00159BC0 /* Date+Addditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801804FC247B974E00159BC0 /* Date+Addditions.swift */; };
 		80180500247BDFF900159BC0 /* LocationMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 801804FF247BDFF900159BC0 /* LocationMap.storyboard */; };
-		80180502247BE08F00159BC0 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80180501247BE08F00159BC0 /* LocationViewController.swift */; };
+		80180502247BE08F00159BC0 /* LocationMapKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80180501247BE08F00159BC0 /* LocationMapKitViewController.swift */; };
 		80180505247BE14500159BC0 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80180504247BE14500159BC0 /* LocationManager.swift */; };
 		8059C3BE2479624A00322C50 /* NibLoadbale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059C3BD2479624A00322C50 /* NibLoadbale.swift */; };
 		8059C3C02479628900322C50 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059C3BF2479628900322C50 /* Configurable.swift */; };
@@ -26,6 +26,10 @@
 		806B1464247A8CAA00F51043 /* VGRadio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806B1463247A8CAA00F51043 /* VGRadio.swift */; };
 		806B1468247A8F5600F51043 /* StatusCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806B1466247A8F5600F51043 /* StatusCollectionViewCell.swift */; };
 		806B1469247A8F5600F51043 /* StatusCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 806B1467247A8F5600F51043 /* StatusCollectionViewCell.xib */; };
+		807950A3247C9FE300474AD8 /* LocationGoogleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807950A2247C9FE300474AD8 /* LocationGoogleMapViewController.swift */; };
+		80AFF1C2247D891500EEDB38 /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AFF1C1247D891500EEDB38 /* UserLocation.swift */; };
+		80AFF1C5247D8BA300EEDB38 /* LocationTrackerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AFF1C4247D8BA300EEDB38 /* LocationTrackerViewModel.swift */; };
+		80AFF1C7247D8ED400EEDB38 /* UserLocationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AFF1C6247D8ED400EEDB38 /* UserLocationDTO.swift */; };
 		80C0D427247922D4004253BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D426247922D4004253BB /* AppDelegate.swift */; };
 		80C0D429247922D4004253BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D428247922D4004253BB /* SceneDelegate.swift */; };
 		80C0D42B247922D4004253BB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0D42A247922D4004253BB /* HomeViewController.swift */; };
@@ -74,7 +78,7 @@
 		55F8707AD44B1AEF321EEE3A /* Pods-LogiNext_Delivery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogiNext_Delivery.release.xcconfig"; path = "Target Support Files/Pods-LogiNext_Delivery/Pods-LogiNext_Delivery.release.xcconfig"; sourceTree = "<group>"; };
 		801804FC247B974E00159BC0 /* Date+Addditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Addditions.swift"; sourceTree = "<group>"; };
 		801804FF247BDFF900159BC0 /* LocationMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LocationMap.storyboard; sourceTree = "<group>"; };
-		80180501247BE08F00159BC0 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		80180501247BE08F00159BC0 /* LocationMapKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapKitViewController.swift; sourceTree = "<group>"; };
 		80180504247BE14500159BC0 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		8059C3BD2479624A00322C50 /* NibLoadbale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadbale.swift; sourceTree = "<group>"; };
 		8059C3BF2479628900322C50 /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
@@ -90,6 +94,10 @@
 		806B1463247A8CAA00F51043 /* VGRadio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VGRadio.swift; sourceTree = "<group>"; };
 		806B1466247A8F5600F51043 /* StatusCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCollectionViewCell.swift; sourceTree = "<group>"; };
 		806B1467247A8F5600F51043 /* StatusCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatusCollectionViewCell.xib; sourceTree = "<group>"; };
+		807950A2247C9FE300474AD8 /* LocationGoogleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationGoogleMapViewController.swift; sourceTree = "<group>"; };
+		80AFF1C1247D891500EEDB38 /* UserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
+		80AFF1C4247D8BA300EEDB38 /* LocationTrackerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTrackerViewModel.swift; sourceTree = "<group>"; };
+		80AFF1C6247D8ED400EEDB38 /* UserLocationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationDTO.swift; sourceTree = "<group>"; };
 		80C0D423247922D4004253BB /* LogiNext_Delivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogiNext_Delivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80C0D426247922D4004253BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80C0D428247922D4004253BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -160,7 +168,9 @@
 		801804FE247BDF6900159BC0 /* LocationTraker */ = {
 			isa = PBXGroup;
 			children = (
-				80180501247BE08F00159BC0 /* LocationViewController.swift */,
+				80AFF1C3247D8AEC00EEDB38 /* ViewModel */,
+				80180501247BE08F00159BC0 /* LocationMapKitViewController.swift */,
+				807950A2247C9FE300474AD8 /* LocationGoogleMapViewController.swift */,
 			);
 			path = LocationTraker;
 			sourceTree = "<group>";
@@ -176,9 +186,9 @@
 		8059C3B8247961E100322C50 /* UserScreen */ = {
 			isa = PBXGroup;
 			children = (
+				807950A4247CA52100474AD8 /* ViewModel */,
 				8059C3B9247961F900322C50 /* Cells */,
 				80C0D47E24795FDF004253BB /* UserListViewController.swift */,
-				8059C3C5247962EC00322C50 /* UserListViewModel.swift */,
 			);
 			path = UserScreen;
 			sourceTree = "<group>";
@@ -214,10 +224,10 @@
 		8059C3C8247976A500322C50 /* OrderDetailScreen */ = {
 			isa = PBXGroup;
 			children = (
+				807950A5247CA52F00474AD8 /* ViewModel */,
 				806B1465247A8F3700F51043 /* Cells */,
 				806B1460247A8C7400F51043 /* CustomSelectable */,
 				8059C3D32479793700322C50 /* OrderDetailViewController.swift */,
-				8059C3D524797A6D00322C50 /* OrderDetailViewModel.swift */,
 			);
 			path = OrderDetailScreen;
 			sourceTree = "<group>";
@@ -238,6 +248,30 @@
 				806B1467247A8F5600F51043 /* StatusCollectionViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		807950A4247CA52100474AD8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8059C3C5247962EC00322C50 /* UserListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		807950A5247CA52F00474AD8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8059C3D524797A6D00322C50 /* OrderDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		80AFF1C3247D8AEC00EEDB38 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				80AFF1C4247D8BA300EEDB38 /* LocationTrackerViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		80C0D41A247922D4004253BB = {
@@ -263,11 +297,12 @@
 		80C0D425247922D4004253BB /* LogiNext_Delivery */ = {
 			isa = PBXGroup;
 			children = (
+				80C0D467247948DC004253BB /* LogisticManager */,
 				80180503247BE13300159BC0 /* LocationManager */,
 				8059C3BC2479621D00322C50 /* UIProtocols */,
 				80C0D47924795C07004253BB /* Utils */,
 				8059C3C72479768F00322C50 /* Storyboards */,
-				80C0D470247959B2004253BB /* Screens */,
+				80C0D470247959B2004253BB /* Views */,
 				80C0D46C24794B6A004253BB /* ViewModel */,
 				80C0D453247933B2004253BB /* Extensions */,
 				80C0D44824792620004253BB /* DatabaseService */,
@@ -292,7 +327,6 @@
 		80C0D44824792620004253BB /* DatabaseService */ = {
 			isa = PBXGroup;
 			children = (
-				80C0D467247948DC004253BB /* LogisticManager */,
 				80C0D46224793D54004253BB /* Mapper */,
 				80C0D45D24793964004253BB /* DTO */,
 				80C0D44C24792D48004253BB /* Realm */,
@@ -353,6 +387,7 @@
 			children = (
 				80C0D459247934DC004253BB /* Order.swift */,
 				80C0D45B2479372D004253BB /* User.swift */,
+				80AFF1C1247D891500EEDB38 /* UserLocation.swift */,
 			);
 			path = RealmModels;
 			sourceTree = "<group>";
@@ -362,6 +397,7 @@
 			children = (
 				80C0D45E2479399B004253BB /* UserDTO.swift */,
 				80C0D460247939CC004253BB /* OrderDTO.swift */,
+				80AFF1C6247D8ED400EEDB38 /* UserLocationDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -377,8 +413,8 @@
 		80C0D467247948DC004253BB /* LogisticManager */ = {
 			isa = PBXGroup;
 			children = (
-				80C0D46F24794C87004253BB /* User */,
 				80C0D46824794906004253BB /* BaseLogisticManager.swift */,
+				80C0D46A2479495F004253BB /* LogisticManager.swift */,
 			);
 			path = LogisticManager;
 			sourceTree = "<group>";
@@ -391,24 +427,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		80C0D46F24794C87004253BB /* User */ = {
-			isa = PBXGroup;
-			children = (
-				80C0D46A2479495F004253BB /* LogisticManager.swift */,
-			);
-			path = User;
-			sourceTree = "<group>";
-		};
-		80C0D470247959B2004253BB /* Screens */ = {
+		80C0D470247959B2004253BB /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				801804FE247BDF6900159BC0 /* LocationTraker */,
-				80EB3F35247A45DB0097D09A /* OrderList */,
 				8059C3C8247976A500322C50 /* OrderDetailScreen */,
 				8059C3B8247961E100322C50 /* UserScreen */,
 				80C0D471247959B9004253BB /* HomeScreen */,
 			);
-			path = Screens;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		80C0D471247959B9004253BB /* HomeScreen */ = {
@@ -436,13 +463,6 @@
 				80C0D47A24795C15004253BB /* Helper.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		80EB3F35247A45DB0097D09A /* OrderList */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = OrderList;
 			sourceTree = "<group>";
 		};
 		80EB3F36247A46050097D09A /* ViewModel */ = {
@@ -487,6 +507,7 @@
 				80C0D420247922D4004253BB /* Frameworks */,
 				80C0D421247922D4004253BB /* Resources */,
 				D323205F5439D899D503AD1C /* [CP] Embed Pods Frameworks */,
+				7C393C9BA33DBE42821FF2AF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -604,6 +625,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7C393C9BA33DBE42821FF2AF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LogiNext_Delivery/Pods-LogiNext_Delivery-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LogiNext_Delivery/Pods-LogiNext_Delivery-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LogiNext_Delivery/Pods-LogiNext_Delivery-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D323205F5439D899D503AD1C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -650,9 +688,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80180502247BE08F00159BC0 /* LocationViewController.swift in Sources */,
+				80180502247BE08F00159BC0 /* LocationMapKitViewController.swift in Sources */,
 				801804FD247B974E00159BC0 /* Date+Addditions.swift in Sources */,
 				80C0D461247939CC004253BB /* OrderDTO.swift in Sources */,
+				807950A3247C9FE300474AD8 /* LocationGoogleMapViewController.swift in Sources */,
 				8059C3C6247962EC00322C50 /* UserListViewModel.swift in Sources */,
 				80EB3F43247A62EA0097D09A /* OrderTabCollectionViewCell.swift in Sources */,
 				8059C3C3247962AC00322C50 /* UserTableViewCell.swift in Sources */,
@@ -664,6 +703,7 @@
 				80C0D46B2479495F004253BB /* LogisticManager.swift in Sources */,
 				80C0D427247922D4004253BB /* AppDelegate.swift in Sources */,
 				8059C3D42479793700322C50 /* OrderDetailViewController.swift in Sources */,
+				80AFF1C7247D8ED400EEDB38 /* UserLocationDTO.swift in Sources */,
 				80C0D45F2479399B004253BB /* UserDTO.swift in Sources */,
 				80EB3F39247A46350097D09A /* HomeViewModel.swift in Sources */,
 				80C0D45A247934DC004253BB /* Order.swift in Sources */,
@@ -671,6 +711,7 @@
 				80C0D47D24795CBC004253BB /* UIViewController+Additions.swift in Sources */,
 				806B1468247A8F5600F51043 /* StatusCollectionViewCell.swift in Sources */,
 				80C0D47B24795C15004253BB /* Helper.swift in Sources */,
+				80AFF1C5247D8BA300EEDB38 /* LocationTrackerViewModel.swift in Sources */,
 				80C0D455247933C3004253BB /* URL+Additions.swift in Sources */,
 				80C0D46624793D9C004253BB /* MappableProtocol.swift in Sources */,
 				8059C3BE2479624A00322C50 /* NibLoadbale.swift in Sources */,
@@ -682,6 +723,7 @@
 				80C0D44B24792C54004253BB /* DataManagerProtocol.swift in Sources */,
 				80C0D45C2479372D004253BB /* User.swift in Sources */,
 				80EB3F3F247A4D4F0097D09A /* OrderTableViewCell.swift in Sources */,
+				80AFF1C2247D891500EEDB38 /* UserLocation.swift in Sources */,
 				80C0D46924794906004253BB /* BaseLogisticManager.swift in Sources */,
 				8059C3C02479628900322C50 /* Configurable.swift in Sources */,
 				8059C3D2247978CD00322C50 /* UIView+Additions.swift in Sources */,
@@ -856,7 +898,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.raweng.sandbox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = Sandbox_APNS;
+				PROVISIONING_PROFILE_SPECIFIER = "com.raweng.sandbox Development";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -877,7 +919,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.raweng.sandbox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = Sandbox_APNS;
+				PROVISIONING_PROFILE_SPECIFIER = "com.raweng.sandbox Development";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -889,7 +931,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = LogiNext_DeliveryTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -897,8 +940,10 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.raweng.sandbox.LogiNext-DeliveryTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.raweng.sandbox.Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LogiNext_Delivery.app/LogiNext_Delivery";
@@ -911,7 +956,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = LogiNext_DeliveryTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -919,8 +965,10 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.raweng.sandbox.LogiNext-DeliveryTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.raweng.sandbox.Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LogiNext_Delivery.app/LogiNext_Delivery";
