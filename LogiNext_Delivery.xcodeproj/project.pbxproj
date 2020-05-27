@@ -12,6 +12,7 @@
 		80180500247BDFF900159BC0 /* LocationMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 801804FF247BDFF900159BC0 /* LocationMap.storyboard */; };
 		80180502247BE08F00159BC0 /* LocationMapKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80180501247BE08F00159BC0 /* LocationMapKitViewController.swift */; };
 		80180505247BE14500159BC0 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80180504247BE14500159BC0 /* LocationManager.swift */; };
+		803F1E01247E4768001540E7 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803F1E00247E4768001540E7 /* HomeViewModelTests.swift */; };
 		8059C3BE2479624A00322C50 /* NibLoadbale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059C3BD2479624A00322C50 /* NibLoadbale.swift */; };
 		8059C3C02479628900322C50 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059C3BF2479628900322C50 /* Configurable.swift */; };
 		8059C3C3247962AC00322C50 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059C3C1247962AC00322C50 /* UserTableViewCell.swift */; };
@@ -80,6 +81,7 @@
 		801804FF247BDFF900159BC0 /* LocationMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LocationMap.storyboard; sourceTree = "<group>"; };
 		80180501247BE08F00159BC0 /* LocationMapKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapKitViewController.swift; sourceTree = "<group>"; };
 		80180504247BE14500159BC0 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		803F1E00247E4768001540E7 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		8059C3BD2479624A00322C50 /* NibLoadbale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadbale.swift; sourceTree = "<group>"; };
 		8059C3BF2479628900322C50 /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		8059C3C1247962AC00322C50 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 			children = (
 				80C0D43D247922D6004253BB /* LogiNext_DeliveryTests.swift */,
 				80C0D43F247922D6004253BB /* Info.plist */,
+				803F1E00247E4768001540E7 /* HomeViewModelTests.swift */,
 			);
 			path = LogiNext_DeliveryTests;
 			sourceTree = "<group>";
@@ -736,6 +739,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				80C0D43E247922D6004253BB /* LogiNext_DeliveryTests.swift in Sources */,
+				803F1E01247E4768001540E7 /* HomeViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
