@@ -28,7 +28,6 @@ class UserListViewModel {
     }
     
     func addNewUser(name: String, date: Date) {
-        self.logisiticsMainViewModel?.manager.deleteOldUsersLocationFromDb()
         let userDTO = UserDTO(name: name, id: Int(date.timeIntervalSince1970))
         logisiticsMainViewModel?.saveUser(userDTO: userDTO, completion: { success in
             self.getUsers()

@@ -59,7 +59,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Close" translatesAutoresizingMaskIntoConstraints="NO" id="O9W-4n-m2Y">
-                                <rect key="frame" x="330" y="778" width="44" height="44"/>
+                                <rect key="frame" x="330" y="802" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="8yP-RB-p2l"/>
                                     <constraint firstAttribute="width" constant="44" id="MfT-jC-FWf"/>
@@ -74,7 +74,7 @@
                             <constraint firstAttribute="trailing" secondItem="Xdw-yi-9jX" secondAttribute="trailing" id="6Aa-ZH-uMA"/>
                             <constraint firstItem="Xdw-yi-9jX" firstAttribute="top" secondItem="A2c-uN-sND" secondAttribute="top" id="EkY-VW-nx2"/>
                             <constraint firstItem="I29-mo-Dwo" firstAttribute="trailing" secondItem="Xdw-yi-9jX" secondAttribute="trailing" id="Yb6-3H-Kx5"/>
-                            <constraint firstItem="I29-mo-Dwo" firstAttribute="bottom" secondItem="O9W-4n-m2Y" secondAttribute="bottom" constant="40" id="b0I-X0-4zk"/>
+                            <constraint firstAttribute="bottom" secondItem="O9W-4n-m2Y" secondAttribute="bottom" constant="50" id="b0I-X0-4zk"/>
                             <constraint firstItem="Xdw-yi-9jX" firstAttribute="leading" secondItem="A2c-uN-sND" secondAttribute="leading" id="h07-gw-Z9a"/>
                             <constraint firstItem="I29-mo-Dwo" firstAttribute="trailing" secondItem="O9W-4n-m2Y" secondAttribute="trailing" constant="40" id="lDz-kn-9wG"/>
                             <constraint firstItem="Xdw-yi-9jX" firstAttribute="leading" secondItem="I29-mo-Dwo" secondAttribute="leading" id="vnR-Sr-hH8"/>

@@ -76,6 +76,7 @@ extension UserListViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension UserListViewController: UserSelected {
     func selectedUser(model: UserDTO) {
+        self.viewModel?.logisiticsMainViewModel?.manager.deleteOldUsersLocationFromDb()
         self.viewModel?.logisiticsMainViewModel?.setCurrentUser(userDTO: model)
         self.dismiss(animated: true, completion: {
             self.viewModel?.navigator?.userUpdated?()

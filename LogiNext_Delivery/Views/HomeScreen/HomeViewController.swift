@@ -179,7 +179,11 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.viewModel?.selectedTabIndex = indexPath.item
         self.menuCollectionView.reloadData()
-        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        var scrollposition = UICollectionView.ScrollPosition.centeredHorizontally
+        if let count = self.viewModel?.tabHeadings.count, indexPath.item == count - 1 {
+            scrollposition = .right
+        }
+        collectionView.scrollToItem(at: indexPath, at: scrollposition, animated: true)
         self.viewModel?.loadOrdersAsPerTabIndex(index: indexPath.item)
     }
 }
