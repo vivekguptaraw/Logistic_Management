@@ -41,25 +41,27 @@ class LocationGoogleMapViewController: UIViewController {
         if let start = locationManager?.startLocation {
             var zoomLevel: Float = 16.0
             if isCameraSet {
-                zoomLevel = camera!.zoom
+                print("==> camera!.zoom \(camera!.zoom)")
+                zoomLevel = mapView.camera.zoom
             }
             camera = GMSCameraPosition.camera(withLatitude: start.coordinate.latitude, longitude: start.coordinate.longitude, zoom: zoomLevel)
             isCameraSet = true
-            
-            if let cam = camera {
-                mapView.camera = cam
-                mapView.mapType = .normal
-                locationMarker = GMSMarker(position: start.coordinate)
-                locationMarker.title = "You Started here.."
-                locationMarker.appearAnimation = .pop
-                locationMarker.icon = GMSMarker.markerImage(with: UIColor.red)
-                locationMarker.opacity = 0.75
-                locationMarker.isFlat = true
-                locationMarker.map = mapView
-            }
-            
             let sourceCoordinate = start.coordinate
             if let current = locationManager?.currentLocation {
+                
+                if let cam = camera {
+                    mapView.camera = cam
+                    mapView.mapType = .normal
+                    locationMarker = GMSMarker(position: current.coordinate)
+                    locationMarker.title = "Currently you are here.."
+                    locationMarker.appearAnimation = .pop
+                    locationMarker.icon = GMSMarker.markerImage(with: UIColor.red)
+                    locationMarker.opacity = 0.75
+                    locationMarker.isFlat = true
+                    locationMarker.map = mapView
+                }
+            
+            
                 let destinationLocation = current.coordinate
                 fetchRoute(from: sourceCoordinate, to: destinationLocation)
             }
@@ -70,7 +72,7 @@ class LocationGoogleMapViewController: UIViewController {
 
         let session = URLSession.shared
         let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(source.latitude),\(source.longitude)&destination=\(destination.latitude),\(destination.longitude)&sensor=false&mode=driving&key=\(Helper.googleApiKey)")!
-
+        print("==>Direction URL \(url.absoluteString)")
         let task = session.dataTask(with: url, completionHandler: {[weak self]
             (data, response, error) in
 
@@ -135,6 +137,7 @@ class LocationGoogleMapViewController: UIViewController {
         })
         alertView.addAction(action)
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: { (_) in
+            self.closeClicked()
         })
         alertView.addAction(cancelAction)
         self.present(alertView, animated: true, completion: nil)

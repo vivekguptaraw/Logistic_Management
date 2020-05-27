@@ -30,6 +30,7 @@ class Order: Object {
     @objc dynamic var pickedUpByUser: User?
     @objc dynamic var deliveredByUser: User?
     @objc dynamic var cancelledByUser: User?
+    @objc dynamic var lastUpdatedByUser: User?
     
     let ofUser = LinkingObjects(fromType: User.self, property: "assignedOrders")
     

@@ -32,6 +32,8 @@ class UserListViewController: UIViewController {
         tableView.register(UserTableViewCell.defaultNib, forCellReuseIdentifier: UserTableViewCell.defaultNibName)
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.separatorStyle = .none
+        tableView.tableFooterView = UIView()
         textField.returnKeyType = .done
         textField.delegate = self
         textField.becomeFirstResponder()

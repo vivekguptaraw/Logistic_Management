@@ -39,7 +39,7 @@ class LocationManager: NSObject {
             locationManager = CLLocationManager()
         }
         locationManager?.delegate = self
-        locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager?.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         locationManager?.requestAlwaysAuthorization()
         locationManager?.requestLocation()
     }
@@ -96,13 +96,13 @@ extension LocationManager: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let newLocation = locations.last{
-            print("==>(\(newLocation.coordinate.latitude), \(newLocation.coordinate.latitude))")
+            print("==>(\(newLocation.coordinate.latitude), \(newLocation.coordinate.longitude))")
         }
         for location in locations {
             let coordinate  = location.coordinate
             let accurecy    = location.horizontalAccuracy
-            print(accurecy)
-            if accurecy > 0 && accurecy < 100 {
+            print("==>Accruracy \(accurecy)")
+            if accurecy > 0 && accurecy < 2000 {
                 if let current = self.currentLocation {
                     if coordinate.latitude == current.coordinate.latitude && coordinate.longitude == current.coordinate.longitude {
                         //User is at same place

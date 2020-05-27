@@ -27,6 +27,7 @@ struct OrderDTO {
     var pickedUpByUser: UserDTO?
     var deliveredByUser: UserDTO?
     var cancelledByUser: UserDTO?
+    var lastUpdatedByUser: UserDTO?
     
     init(id: Int32, name: String, desc: String?) {
         self.orderId = id
@@ -60,6 +61,7 @@ struct OrderDTO {
         self.createdDate = date
         self.lastUpdatedDate = date
         self.isQueued = true
+        self.lastUpdatedByUser = byUser
     }
     
     mutating func pickUp(byUser: UserDTO) {
@@ -67,6 +69,7 @@ struct OrderDTO {
         self.isInTransit = true
         self.pickedUpDate = Date()
         self.lastUpdatedDate = self.pickedUpDate
+        self.lastUpdatedByUser = byUser
     }
     
     mutating func cancelled(byUser: UserDTO) {
@@ -74,6 +77,7 @@ struct OrderDTO {
         self.isCancelled = true
         self.cancellededDate = Date()
         self.lastUpdatedDate = self.cancellededDate
+        self.lastUpdatedByUser = byUser
     }
     
     mutating func delivered(byUser: UserDTO) {
@@ -81,6 +85,7 @@ struct OrderDTO {
         self.isDelivered = true
         self.deliveredDate = Date()
         self.lastUpdatedDate = self.deliveredDate
+        self.lastUpdatedByUser = byUser
     }
     
     func getStatusColor() -> UIColor {
@@ -153,6 +158,7 @@ extension OrderDTO: MappableProtocol {
         model.pickedUpByUser = self.pickedUpByUser?.mapToPersistenceObject()
         model.deliveredByUser = self.deliveredByUser?.mapToPersistenceObject()
         model.cancelledByUser = self.cancelledByUser?.mapToPersistenceObject()
+        model.lastUpdatedByUser = self.lastUpdatedByUser?.mapToPersistenceObject()
         return model
     }
     
@@ -179,6 +185,9 @@ extension OrderDTO: MappableProtocol {
         }
         if let usr = object.cancelledByUser {
             orderDto.cancelledByUser = UserDTO.mapFromPersistenceObject(usr)
+        }
+        if let usr = object.lastUpdatedByUser {
+            orderDto.lastUpdatedByUser = UserDTO.mapFromPersistenceObject(usr)
         }
         return orderDto
     }

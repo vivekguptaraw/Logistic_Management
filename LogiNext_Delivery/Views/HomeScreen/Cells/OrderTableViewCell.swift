@@ -18,6 +18,9 @@ class OrderTableViewCell: UITableViewCell, ConfigurableCell {
     @IBOutlet weak var statusTitle: UILabel!
     @IBOutlet weak var statusValueLabel: UILabel!
     @IBOutlet weak var innerView: UIView!
+    @IBOutlet weak var lastUpdatedByTitle: UILabel!
+    @IBOutlet weak var lastUpdatedByValueLabel: UILabel!
+    
     
     var orderDTO: OrderDTO?
 
@@ -34,6 +37,7 @@ class OrderTableViewCell: UITableViewCell, ConfigurableCell {
         statusValueLabel.text = item.status.rawValue
         self.dateLabel.text = item.getDateString(date: item.createdDate)
         self.statusValueLabel.textColor = item.getStatusColor()
+        self.lastUpdatedByValueLabel.text = item.lastUpdatedByUser?.firstName
     }
     
     override func layoutSubviews() {
