@@ -48,23 +48,35 @@ class HomeViewModel {
         })
     }
     
+    func getUserId() -> Int {
+        guard let id = self.logisiticsMainViewModel?.currentUser?.userId else {return 0}
+        return id
+    }
+    
     func loadOrdersAsPerTabIndex(index: Int) {
         let tabValue = OrderTabs.valueAtIndex(index: index)
         var comp: NSCompoundPredicate?
         var userPredicate: NSPredicate?
         let sorted = Sorted(key: "lastUpdatedDate", ascending: false)
         if tabValue.isForCurrentUser {
-            guard let id = self.logisiticsMainViewModel?.currentUser?.userId else {return}
-            userPredicate = NSPredicate(format: "%K == %@", argumentArray: ["createdByUser.userId", id])
+            userPredicate = NSPredicate(format: "%K == %@", argumentArray: ["createdByUser.userId", self.getUserId()])
         }
         if tabValue == .MyAllOrders || tabValue == .All  {
             if tabValue.isForCurrentUser {
-                comp = NSCompoundPredicate(andPredicateWithSubpredicates: [userPredicate!])
+                let predicate1 = NSPredicate(format: "%K == %@", argumentArray: ["pickedUpByUser.userId", self.getUserId()])
+                let predicate2 = NSPredicate(format: "%K == %@", argumentArray: ["deliveredByUser.userId", self.getUserId()])
+                let predicate3 = NSPredicate(format: "%K == %@", argumentArray: ["cancelledByUser.userId", self.getUserId()])
+                comp = NSCompoundPredicate(orPredicateWithSubpredicates: [predicate1, predicate2, predicate3, userPredicate!])
             }
         } else if tabValue == .MyToday || tabValue == .AllToday {
             let predicateDate = NSPredicate(format: "%K >= %@", argumentArray: ["createdDate", Date.midnight])
             if tabValue.isForCurrentUser {
-                comp = NSCompoundPredicate(andPredicateWithSubpredicates: [predicateDate, userPredicate!])
+                let predicate1 = NSPredicate(format: "%K == %@", argumentArray: ["pickedUpByUser.userId", self.getUserId()])
+                let predicate2 = NSPredicate(format: "%K == %@", argumentArray: ["deliveredByUser.userId", self.getUserId()])
+                let predicate3 = NSPredicate(format: "%K == %@", argumentArray: ["cancelledByUser.userId", self.getUserId()])
+                
+                let orPred = NSCompoundPredicate(orPredicateWithSubpredicates: [ predicate1, predicate2, predicate3, userPredicate!])
+                comp = NSCompoundPredicate(andPredicateWithSubpredicates: [orPred, predicateDate])
             } else {
                 comp = NSCompoundPredicate(andPredicateWithSubpredicates: [predicateDate])
             }
@@ -82,7 +94,8 @@ class HomeViewModel {
             let predicate2 = NSPredicate(format: "%K == %@", argumentArray: ["isCancelled", false])
             let predicate3 = NSPredicate(format: "%K == %@", argumentArray: ["isDelivered", false])
             if tabValue.isForCurrentUser {
-                comp = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1, predicate2, predicate3, userPredicate!])
+                    let predicate4 = NSPredicate(format: "%K == %@", argumentArray: ["pickedUpByUser.userId", self.getUserId()])
+                    comp = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1, predicate2, predicate3, predicate4])
             } else {
                 comp = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1, predicate2, predicate3])
             }
@@ -91,14 +104,17 @@ class HomeViewModel {
             let predicate2 = NSPredicate(format: "%K == %@", argumentArray: ["isDelivered", true])
             let predicate3 = NSPredicate(format: "%K == %@", argumentArray: ["isCancelled", false])
             if tabValue.isForCurrentUser {
-                comp = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate2, predicate3, userPredicate!])
+                    let predicate4 = NSPredicate(format: "%K == %@", argumentArray: ["deliveredByUser.userId", self.getUserId()])
+                    comp = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate2, predicate3, predicate4])
+                    
             } else {
                 comp = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate2, predicate3])
             }
         } else if tabValue == .MyCancelled || tabValue == .AllCancelled {
             let predicate1 = NSPredicate(format: "%K == %@", argumentArray: ["isCancelled", true])
             if tabValue.isForCurrentUser {
-                comp = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1, userPredicate!])
+                let predicate4 = NSPredicate(format: "%K == %@", argumentArray: ["cancelledByUser.userId", self.getUserId()])
+                comp = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1, predicate4])
             } else {
                 comp = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1])
             }

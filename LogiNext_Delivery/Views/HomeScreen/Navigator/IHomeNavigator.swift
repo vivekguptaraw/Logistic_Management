@@ -30,7 +30,7 @@ class HomeNavigator: IHomeNavigator {
     
     required init(nav: UINavigationController?) {
         self.navigation = nav
-        self.navigation?.navigationBar.barTintColor = UIColor.init(hexString: "#3B87FF").withAlphaComponent(0.3)
+        self.navigation?.navigationBar.barTintColor = UIColor.init(hexString: "#3c84a6").withAlphaComponent(0.3)
         logisticViewModel = LogisticViewModel()
     }
     

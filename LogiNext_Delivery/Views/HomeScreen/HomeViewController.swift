@@ -52,6 +52,7 @@ class HomeViewController: UIViewController {
         plusImageView.addGestureRecognizer(menuTap!)
         ordersTableView.tableFooterView = UIView()
         ordersTableView.separatorStyle = .none
+        self.menuView.backgroundColor = UIColor.init(hexString: "#3c84a6")
         self.title = "Logistic Manager"
     }
     
@@ -73,6 +74,7 @@ class HomeViewController: UIViewController {
             self.viewModel?.reloadBlock = {
                 self.ordersTableView.reloadData()
                 self.menuCollectionView.reloadData()
+                self.menuCollectionView.scrollToItem(at: IndexPath(item: self.viewModel?.selectedTabIndex ?? 0, section: 0), at: .centeredHorizontally, animated: true)
                 self.setEmptyView()
             }
         }
